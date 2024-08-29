@@ -19,7 +19,7 @@ struct HintCardView: View {
                         .font(.title)
                         .multilineTextAlignment(.leading)
                         .lineLimit(7)
-                        .frame(maxHeight: .infinity, alignment: .top)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                 }
                 
                 if let image = hint.image {
@@ -27,14 +27,15 @@ struct HintCardView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: hint.imageAlignment)
+                        .padding(-16)
                 }
-            }
-            
-            Button("I’ve Arrived") {
                 
+                Button("I’ve Arrived") {
+                    
+                }
+                .buttonStyle(.borderedProminent)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
             }
-            .buttonStyle(.borderedProminent)
-            .frame(maxWidth: .infinity, alignment: .trailing)
         }
     }
 }

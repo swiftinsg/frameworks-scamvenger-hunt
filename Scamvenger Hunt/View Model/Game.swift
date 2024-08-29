@@ -43,7 +43,7 @@ class Game {
     }
     
     var completedStations: Set<Station> = []
-    var currentStation: Station? = .coreHapticsAndNearbyInteractions
+    var currentStation: Station? = .userNotificationsAndWidgetKit
     
     func setCurrentPlayer(to index: Int) {
         currentPlayerIndex = index
@@ -59,5 +59,16 @@ class Game {
                 self.setCurrentPlayer(to: nextPlayerIndex)
             }
         }
+    }
+    
+    init() {
+        // Skip intro if simulator
+#if targetEnvironment(simulator)
+        players = Player.PlayerColor.allCases.map({
+            Player(color: $0)
+        })
+        groupName = "Sample Group Name"
+        state = .playingIdle
+#endif
     }
 }
