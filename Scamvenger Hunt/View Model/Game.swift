@@ -11,8 +11,6 @@ import SwiftUI
 
 @Observable
 class Game {
-    // for testing
-//    var players: [Player] = Player.PlayerColor.allCases.map { Player(color: $0) }
     var players: [Player] = []
     var state: GameState = .setUp {
         didSet {
@@ -23,7 +21,7 @@ class Game {
         }
     }
     
-    var groupName: String = "Potato Potato"
+    var groupName: String = ""
     
     private(set) var currentPlayerIndex: Int?
     private(set) var currentPlayerStartDate: Date?
@@ -60,10 +58,5 @@ class Game {
                 self.setCurrentPlayer(to: nextPlayerIndex)
             }
         }
-    }
-    
-    init() {
-        #warning("for testing")
-        setCurrentPlayer(to: 0)
     }
 }

@@ -16,7 +16,8 @@ class SetUp {
     private(set) var temporaryPlayers: [Player] = []
     
     func detectFaces(image: UIImage?) {
-        guard let image = image, let imageData = image.pngData() else {
+        guard let image = image?.imageWithOrientationSetToUp(),
+              let imageData = image.pngData() else {
             print("Failed to get PNG data from image.")
             return
         }
@@ -100,5 +101,24 @@ class SetUp {
             )
         }
         self.temporaryPlayers = tempArr
+    }
+    
+    func reset() {
+        temporaryPlayers = []
+    }
+}
+
+extension UIImage {
+    func imageWithOrientationSetToUp() -> UIImage? {
+        if self.imageOrientation == .up {
+            return self
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        self.draw(in: CGRect(origin: .zero, size: self.size))
+        let normalizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return normalizedImage
     }
 }
