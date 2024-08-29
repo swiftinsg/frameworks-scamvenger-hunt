@@ -16,16 +16,25 @@ class Game {
     var state: GameState = .playingIdle {
         didSet {
             if state == .playingIdle && currentPlayer == nil,
-               let player = players.first {
-                setCurrentPlayer(to: player)
+               !players.isEmpty {
+                setCurrentPlayer(to: 0)
             }
         }
     }
     
     var groupName: String = "Potato Potato"
     
-    private(set) var currentPlayer: Player?
+    private(set) var currentPlayerIndex: Int?
     private(set) var currentPlayerStartDate: Date?
+    
+    var currentPlayer: Player? {
+        if let currentPlayerIndex {
+            players[currentPlayerIndex]
+        } else {
+            nil
+        }
+    }
+    
     var currentPlayerEndDate: Date? {
         currentPlayerStartDate?.addingTimeInterval(300)
     }
@@ -36,13 +45,24 @@ class Game {
     
     var completedStations: Set<Station> = []
     
-    func setCurrentPlayer(to player: Player) {
-        currentPlayer = player
+    func setCurrentPlayer(to index: Int) {
+        currentPlayerIndex = index
         currentPlayerStartDate = .now
+        
+        Timer.scheduledTimer(withTimeInterval: abs(currentPlayerEndDate!.timeIntervalSinceNow), repeats: false) { _ in
+            withAnimation {
+                var nextPlayerIndex = self.currentPlayerIndex! + 1
+                if nextPlayerIndex == self.players.count {
+                    nextPlayerIndex = 0
+                }
+                
+                self.setCurrentPlayer(to: nextPlayerIndex)
+            }
+        }
     }
     
     init() {
         #warning("for testing")
-        setCurrentPlayer(to: players.first!)
+        setCurrentPlayer(to: 0)
     }
 }

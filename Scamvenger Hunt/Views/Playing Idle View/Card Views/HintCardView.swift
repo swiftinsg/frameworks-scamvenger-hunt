@@ -12,7 +12,7 @@ struct HintCardView: View {
     var hint: String
     
     var body: some View {
-        CardView(title: "hint") {
+        CardView(title: "Next Location Hint") {
             Text(hint)
                 .font(.title)
                 .multilineTextAlignment(.leading)

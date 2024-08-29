@@ -15,6 +15,8 @@ struct TimerView: View {
     
     @State private var progress = 1.0
     
+    @State private var timerTrackOpacity = 1.0
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -27,6 +29,7 @@ struct TimerView: View {
                 .edgesIgnoringSafeArea(.top)
                 .frame(width: width * progress)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .opacity(timerTrackOpacity)
             
             CurrentPlayerBubbleView()
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -51,8 +54,14 @@ struct TimerView: View {
         .frame(height: 48)
         .onChange(of: (game.currentPlayerStartDate ?? .distantPast), initial: true) { oldValue, newValue in
             if let endDate = game.currentPlayerEndDate {
-                withAnimation(.linear(duration: abs(endDate.timeIntervalSinceNow))) {
-                    progress = 0
+                timerTrackOpacity = 0
+                progress = 1
+                withAnimation {
+                    timerTrackOpacity = 1
+                } completion: {
+                    withAnimation(.linear(duration: abs(endDate.timeIntervalSinceNow))) {
+                        progress = 0
+                    }
                 }
             }
         }
