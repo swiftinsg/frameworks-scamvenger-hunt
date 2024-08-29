@@ -17,15 +17,15 @@ struct Player: Identifiable {
     enum PlayerColor: Int, CaseIterable {
         case red
         case orange
-        case yellow
         case green
         case blue
+        case purple
         
         var color: Color {
             switch self {
             case .red: .red
             case .orange: .orange
-            case .yellow: .yellow
+            case .purple: .purple
             case .green: .green
             case .blue: .blue
             }

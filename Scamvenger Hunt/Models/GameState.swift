@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum GameState {
+enum GameState: Equatable {
     case setUp
     case playingIdle
     case playing(Station)
 }
 
-enum Station: CaseIterable {
+enum Station: CaseIterable, Equatable {
     case coreHapticsAndNearbyInteractions
     case mapKit
     case userNotificationsAndWidgetKit
