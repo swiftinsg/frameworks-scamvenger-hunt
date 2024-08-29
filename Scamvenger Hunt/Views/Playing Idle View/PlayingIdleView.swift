@@ -21,7 +21,7 @@ struct PlayingIdleView: View {
             
             HStack {
                 BadgesCardView()
-                RoundedRectangle(cornerRadius: 16)
+                ExpenditureCardView()
             }
             .padding(.horizontal)
         }
