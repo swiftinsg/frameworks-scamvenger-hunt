@@ -127,7 +127,7 @@ struct SetUpView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16))
         }
         .buttonStyle(.plain)
-        .disabled(setUp.temporaryPlayers.count > 4)
+        .disabled(setUp.temporaryPlayers.count > 4 && setUp.temporaryPlayers.count < 1)
         .padding(.vertical)
     }
 }
