@@ -16,7 +16,6 @@ struct Player: Identifiable {
     
     enum PlayerColor: Int, CaseIterable {
         case red
-        case orange
         case green
         case blue
         case purple
@@ -24,7 +23,6 @@ struct Player: Identifiable {
         var color: Color {
             switch self {
             case .red: .red
-            case .orange: .orange
             case .purple: .purple
             case .green: .green
             case .blue: .blue
@@ -32,4 +30,3 @@ struct Player: Identifiable {
         }
     }
 }
-
