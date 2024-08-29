@@ -9,15 +9,26 @@ import SwiftUI
 
 struct HintCardView: View {
     
-    var hint: String
+    var hint: Hint
     
     var body: some View {
         CardView(title: "Next Location Hint") {
-            Text(hint)
-                .font(.title)
-                .multilineTextAlignment(.leading)
-                .lineLimit(7)
-            Spacer(minLength: 0)
+            ZStack {
+                if let text = hint.text {
+                    Text(text)
+                        .font(.title)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(7)
+                        .frame(maxHeight: .infinity, alignment: .top)
+                }
+                
+                if let image = hint.image {
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: hint.imageAlignment)
+                }
+            }
             
             Button("I’ve Arrived") {
                 
@@ -26,8 +37,4 @@ struct HintCardView: View {
             .frame(maxWidth: .infinity, alignment: .trailing)
         }
     }
-}
-
-#Preview {
-    HintCardView(hint: "“Sean’s Credit Card” left behind\nThis item is no longer detected near you.\nIt was last seen near Dunearn Rd and Scotts Rd.")
 }
