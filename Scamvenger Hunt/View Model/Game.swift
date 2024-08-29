@@ -12,8 +12,9 @@ import SwiftUI
 @Observable
 class Game {
     // for testing
-    var players: [Player] = Player.PlayerColor.allCases.map { Player(color: $0) }
-    var state: GameState = .playingIdle {
+//    var players: [Player] = Player.PlayerColor.allCases.map { Player(color: $0) }
+    var players: [Player] = []
+    var state: GameState = .setUp {
         didSet {
             if state == .playingIdle && currentPlayer == nil,
                !players.isEmpty {
