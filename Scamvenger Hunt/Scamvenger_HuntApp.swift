@@ -16,6 +16,7 @@ struct Scamvenger_HuntApp: App {
         WindowGroup {
             ContentView()
                 .environment(game)
+                .fontDesign(.monospaced)
         }
     }
 }
