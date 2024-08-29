@@ -16,7 +16,7 @@ struct ContentView: View {
         case .setUp:
             SetUpView()
         case .playingIdle:
-            EmptyView()
+            PlayingIdleView()
         case .playing(let station):
             EmptyView()
         }
