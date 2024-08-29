@@ -11,8 +11,6 @@ struct TimerView: View {
     
     @Environment(Game.self) private var game
     
-    var groupName: String
-    
     @State private var width: CGFloat = 0
     
     var body: some View {
@@ -20,9 +18,15 @@ struct TimerView: View {
             Rectangle()
                 .fill(game.currentPlayer?.color.color ?? .red)
                 .edgesIgnoringSafeArea(.top)
-            Text(groupName)
-                .font(.title)
-                .foregroundStyle(.white)
+            
+            HStack {
+                CurrentPlayerBubbleView()
+                
+                Text(game.groupName)
+                    .font(.title)
+                    .foregroundStyle(.white)
+            }
+            .frame(maxWidth: .infinity)
         }
         .onGeometryChange(for: CGFloat.self) { proxy in
             proxy.size.width
@@ -34,5 +38,5 @@ struct TimerView: View {
 }
 
 #Preview {
-    TimerView(groupName: "test")
+    TimerView()
 }

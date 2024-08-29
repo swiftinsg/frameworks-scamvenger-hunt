@@ -23,15 +23,9 @@ struct CurrentPlayerBubbleView: View {
                     .scaledToFill()
             }
         }
-        .frame(width: 120, height: 120)
+        .frame(width: 32, height: 32)
         .background(.white)
         .clipShape(.circle)
-        .overlay {
-            Circle()
-                .stroke(lineWidth: 4)
-                .foregroundStyle(.tint)
-        }
-        .shadow(radius: 10)
     }
 }
 

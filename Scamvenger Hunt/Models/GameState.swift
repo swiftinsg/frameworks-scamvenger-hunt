@@ -21,6 +21,7 @@ enum Station: CaseIterable {
     case accessibility
     case arKit
     case pencilKit
+    case swiftCharts
     
     var icon: String {
         switch self {
@@ -31,6 +32,7 @@ enum Station: CaseIterable {
         case .accessibility: "accessibility"
         case .arKit: "arkit"
         case .pencilKit: "applepencil.and.scribble"
+        case .swiftCharts: "chart.xyaxis.line"
         }
     }
 }
