@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Scamvenger_HuntApp: App {
+    
+    @State private var game = Game()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(game)
         }
     }
 }
