@@ -48,4 +48,17 @@ enum Station: CaseIterable, Equatable {
         case .swiftCharts: "Sean has left his receipts all over Singapore. Scan them and analyse his $oon spending to find out more information about the robbery."
         }
     }
+    
+    var stationQRContent: String {
+        switch self {
+        case .coreHapticsAndNearbyInteractions: "https://swiftin.sg/1fL2iK"
+        case .mapKit: "https://swiftin.sg/rOPEQ9"
+        case .userNotificationsAndWidgetKit: "https://swiftin.sg/SnvoBH"
+        case .spriteKitAndCoreMotion: "https://swiftin.sg/yBo7kS"
+        case .accessibility: "https://swiftin.sg/DuEHLe"
+        case .arKit: "https://swiftin.sg/TFUMpP"
+        case .pencilKit: "https://swiftin.sg/H0EPxG"
+        case .swiftCharts: ""
+        }
+    }
 }

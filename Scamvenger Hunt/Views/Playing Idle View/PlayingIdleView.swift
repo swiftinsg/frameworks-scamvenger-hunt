@@ -13,9 +13,7 @@ struct PlayingIdleView: View {
     
     var body: some View {
         VStack {
-            TimerView()
-            
-            HintCardView(hint: game.currentStation?.hint ?? "No Current Station")
+            HintCardView()
                 .padding(.horizontal)
                 .padding(.top, 8)
             
@@ -26,7 +24,6 @@ struct PlayingIdleView: View {
             .padding(.horizontal)
         }
         .padding(.bottom)
-        .tint(game.accentColor)
     }
 }
 

@@ -38,9 +38,6 @@ class SetUp {
         
         DispatchQueue.global(qos: .userInitiated).async {
             do {
-#if targetEnvironment(simulator)
-                detectFaceRequest.usesCPUOnly = true
-#endif
                 try requestHandler.perform([detectFaceRequest])
             } catch {
                 print("Failed to perform request: \(error.localizedDescription)")

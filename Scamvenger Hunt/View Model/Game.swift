@@ -39,7 +39,7 @@ class Game {
     }
     
     var accentColor: Color {
-        currentPlayer?.color.color ?? .red
+        currentPlayer?.color.color ?? .blue
     }
     
     var completedStations: Set<Station> = []
