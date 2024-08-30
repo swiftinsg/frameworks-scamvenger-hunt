@@ -11,6 +11,9 @@ import SwiftUI
 
 @Observable
 class Game {
+    
+    var namespace: Namespace.ID?
+    
     var players: [Player] = []
     var state: GameState = .setUp {
         didSet {
@@ -58,6 +61,13 @@ class Game {
                 
                 self.setCurrentPlayer(to: nextPlayerIndex)
             }
+        }
+    }
+    
+    func stationCompleted(_ station: Station) {
+        withAnimation {
+            state = .success(station)
+            completedStations.insert(station)
         }
     }
     

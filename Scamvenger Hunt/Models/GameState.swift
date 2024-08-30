@@ -11,4 +11,5 @@ enum GameState: Equatable {
     case setUp
     case playingIdle
     case playing(Station)
+    case success(Station)
 }

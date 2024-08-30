@@ -61,4 +61,17 @@ enum Station: String, CaseIterable, Equatable {
         case .swiftCharts: ""
         }
     }
+    
+    var frameworks: String {
+        switch self {
+        case .coreHapticsAndNearbyInteractions: "CoreHaptics & NearbyInteractions"
+        case .mapKit: "MapKit"
+        case .userNotificationsAndWidgetKit: "UserNotifications & WidgetKit"
+        case .spriteKitAndCoreMotion: "SpriteKit & CoreMotion"
+        case .accessibility: "Accessibility"
+        case .arKit: "ARKit"
+        case .pencilKit: "PencilKit"
+        case .swiftCharts: "SwiftCharts"
+        }
+    }
 }
