@@ -15,6 +15,8 @@ struct CoreHapticsAndNearbyInteractionsView: View {
     @State private var name = ""
     @State private var cvv = ""
     
+    @State private var expiryDate = ""
+    
     @State private var isErrorPresented = false
     
     var body: some View {
@@ -74,10 +76,20 @@ struct CoreHapticsAndNearbyInteractionsView: View {
             
             Divider()
             
+            HStack {
+                Text("Expiry Date")
+                    .fontWeight(.bold)
+                
+                TextField("MM/YY", text: $expiryDate)
+            }
+            .frame(maxHeight: .infinity)
+            
+            Divider()
+            
             Button("Submit") {
                 let cleanedCardNumber = cardNumber.filter { $0.isNumber }
                 
-                if cleanedCardNumber == "5683468246265283" && name.lowercased() == "sean wong" && cvv == "491" {
+                if cleanedCardNumber == "5683468246265283" && name.lowercased() == "sean wong" && cvv == "491" && expiryDate == "08/24" {
                     game.stationCompleted(.coreHapticsAndNearbyInteractions)
                 } else {
                     isErrorPresented.toggle()
@@ -86,7 +98,7 @@ struct CoreHapticsAndNearbyInteractionsView: View {
             .frame(maxHeight: .infinity)
             .fontWeight(.bold)
             
-            ForEach(0..<9) { _ in
+            ForEach(0..<8) { _ in
                 Divider()
                 
                 Rectangle()
