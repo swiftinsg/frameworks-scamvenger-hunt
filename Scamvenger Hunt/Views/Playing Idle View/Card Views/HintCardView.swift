@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CodeScanner
 
 struct HintCardView: View {
     
@@ -49,18 +48,7 @@ struct HintCardView: View {
             }
         }
         .sheet(isPresented: $isScannerPresented) {
-            CodeScannerView(codeTypes: [.qr], simulatedData: game.currentStation!.stationQRContent) { result in
-                switch result {
-                case .success(let data):
-                    if data.string == game.currentStation!.stationQRContent {
-                        isScannerPresented = false
-                        withAnimation {
-                            game.state = .playing(game.currentStation!)
-                        }
-                    }
-                case .failure(_): break
-                }
-            }
+            RoomQRScannerView()
         }
     }
 }
