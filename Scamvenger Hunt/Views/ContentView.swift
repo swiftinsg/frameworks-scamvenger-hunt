@@ -25,6 +25,8 @@ struct ContentView: View {
             case .playing(let station):
                 StationView(station: station)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            case .success(let station):
+                StationSuccessView(station: station)
             }
         }
         .tint(game.accentColor)

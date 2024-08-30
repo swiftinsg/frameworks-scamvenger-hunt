@@ -26,5 +26,6 @@ struct BadgeView: View {
                 .foregroundStyle(isAttained ? .white : .black)
                 .font(.title)
         }
+        .matchedGeometryEffect(id: "badge.\(station.rawValue)", in: game.namespace!)
     }
 }

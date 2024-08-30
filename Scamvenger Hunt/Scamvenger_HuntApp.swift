@@ -10,7 +10,12 @@ import SwiftUI
 @main
 struct Scamvenger_HuntApp: App {
     
+    @Namespace var namespace
     @State private var game = Game()
+    
+    init() {
+        game.namespace = namespace
+    }
     
     var body: some Scene {
         WindowGroup {

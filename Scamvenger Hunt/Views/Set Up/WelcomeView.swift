@@ -15,6 +15,12 @@ struct WelcomeView: View {
     
     var body: some View {
         VStack {
+            TextField("Group Name", text: Binding(get: {
+                game.groupName
+            }, set: { newValue in
+                game.groupName = newValue
+            }))
+            .multilineTextAlignment(.center)
             Spacer()
             
             HStack {
@@ -38,14 +44,6 @@ struct WelcomeView: View {
             .buttonStyle(.borderedProminent)
             
             Spacer()
-            
-            TextField("Group Name", text: Binding(get: {
-                game.groupName
-            }, set: { newValue in
-                game.groupName = newValue
-            }))
-            .multilineTextAlignment(.center)
-            .padding()
         }
     }
 }
