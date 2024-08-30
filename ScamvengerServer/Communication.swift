@@ -11,6 +11,7 @@ import Vapor
 
 @Observable
 class Communication {
+    var groups: [Int: Group] = [:]
     
     var allRequests: [InputRequest] {
         [group1Request, group2Request, group3Request, group4Request, group5Request, group6Request, group7Request, group8Request].compactMap {$0}
@@ -36,6 +37,19 @@ class Communication {
                 }
                 
                 return await self.issueInputRequest(group: group)
+            }
+            
+            app.post("hello", ":number") { req in
+                guard let number = req.parameters.get("number"),
+                      let group = Int(number),
+                      1...8 ~= group,
+                      let groupName = req.body.string else {
+                    return "error"
+                }
+                
+                self.groups[group] = Group(name: groupName, number: group)
+                
+                return "hello \(groupName)!"
             }
             
             try await app.execute()
