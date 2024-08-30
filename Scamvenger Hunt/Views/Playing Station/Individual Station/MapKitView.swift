@@ -10,67 +10,106 @@ import MapKit
 
 struct MapKitView: View {
     
+    @Environment(Game.self) private var game
+    
+    @State private var mapData = MapData()
+    
     @State private var route: MKRoute?
+    @State private var isMapSearchViewPresented = false
+
+    @State private var isErrorPresented = false
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(spacing: 0) {
-                Text("Sean's ")
-                Text("Stolen")
-                    .background(.tint.opacity(0.2))
-                Text(" $oon")
-            }
-            .font(.title3)
-            .fontWeight(.medium)
-            
-            HStack {
-                Text("Trace His Moves")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.tint)
+            VStack(alignment: .leading) {
+                HStack(spacing: 0) {
+                    Text("Sean's ")
+                    Text("Stolen")
+                        .background(.tint.opacity(0.2))
+                    Text(" $oon")
+                }
+                .font(.title3)
+                .fontWeight(.medium)
                 
-                Spacer()
-                
-                Text(Date.now, style: .date)
-                    .foregroundStyle(.secondary)
+                HStack {
+                    Text("Trace His Moves")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.tint)
+                    
+                    Spacer()
+                    
+                    Text(Date.now, style: .date)
+                        .foregroundStyle(.secondary)
+                }
             }
+            .padding(.leading)
             
             HStack {
                 VStack {
-                    ForEach(0..<8) { _ in
-                        Divider()
+                    HStack {
+                        Button("Add Location") {
+                            isMapSearchViewPresented.toggle()
+                        }
+                        .foregroundStyle(.tint)
+                        .fontWeight(.bold)
                         
-                        Rectangle()
-                            .fill(.clear)
+                        Spacer()
+                        
+                        EditButton()
                     }
+                    .padding(.leading)
+                    
+                    List {
+                        ForEach(mapData.userLocations, id: \.placemark.coordinate.latitude) { location in
+                            VStack(alignment: .leading) {
+                                Text(location.name ?? "No Title")
+                                    .fontWeight(.bold)
+                                Text(location.placemark.thoroughfare ?? "No Address")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .onMove { indexSet, offset in
+                            mapData.userLocations.move(fromOffsets: indexSet, toOffset: offset)
+                        }
+                        .onDelete { indexSet in
+                            mapData.userLocations.remove(atOffsets: indexSet)
+                        }
+                    }
+                    .listStyle(.plain)
+                    
+                    Button("Submit") {
+                        if mapData.locationResults.count >= 6 {
+                            game.stationCompleted(.mapKit)
+                        } else {
+                            isErrorPresented = true
+                        }
+                    }
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 
                 Map(position: .constant(.automatic), selection: .constant(nil)) {
-                    MapPolyline(coordinates: [.init(latitude: 1.298077, longitude: 103.788628),
-                                              .init(latitude: 1.299072, longitude: 103.845051)],
-                                contourStyle: .geodesic)
-                    
-                    if let route {
-                        MapPolyline(route)
-                            .stroke(.blue, lineWidth: 5)
+                    ForEach(mapData.userLocations, id: \.placemark.coordinate.latitude) { location in
+                        Marker(item: location)
                     }
                     
-                    Marker("Apple", coordinate: .init(latitude: 1.298077, longitude: 103.788628))
-                    Marker("Dhoby Ghaut", coordinate: .init(latitude: 1.299072, longitude: 103.845051))
+                    ForEach(mapData.routesOnly, id: \.name) { route in
+                            MapPolyline(route)
+                                .stroke(.blue, lineWidth: 5)
+                    }
                 }
             }
-            .task {
-                let request = MKDirections.Request()
-                request.source = MKMapItem(placemark: MKPlacemark(coordinate: .init(latitude: 1.298077, longitude: 103.788628)))
-                request.destination = MKMapItem(placemark: MKPlacemark(coordinate: .init(latitude: 1.299072, longitude: 103.845051)))
-                
-                let directions = MKDirections(request: request)
-                let response = try? await directions.calculate()
-                route = response?.routes.first
-            }
         }
-        .padding()
+        .padding([.trailing, .vertical])
         .ignoresSafeArea(.keyboard)
+        .sheet(isPresented: $isMapSearchViewPresented) {
+            MapSearchView()
+        }
+        .alert("Incorrect Information", isPresented: $isErrorPresented) {
+            Button("Try Again") {}
+        }
+        .environment(mapData)
     }
 }
 
