@@ -8,14 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		322F142A2C80E43600786766 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 322F14292C80E43600786766 /* CodeScanner */; };
+		32FA0B652C819CDE005E4FDB /* Vapor in Frameworks */ = {isa = PBXBuildFile; productRef = 32FA0B642C819CDE005E4FDB /* Vapor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		322F136C2C8071DE00786766 /* Scamvenger Hunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scamvenger Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32FA0B502C8197B7005E4FDB /* ScamvengerServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScamvengerServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		32FA0B6D2C81A32A005E4FDB /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/Hint.swift,
+				Models/Station.swift,
+			);
+			target = 32FA0B4F2C8197B7005E4FDB /* ScamvengerServer */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		322F136E2C8071DE00786766 /* Scamvenger Hunt */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Hunt"; sourceTree = "<group>"; };
+		322F136E2C8071DE00786766 /* Scamvenger Hunt */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (32FA0B6D2C81A32A005E4FDB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Hunt"; sourceTree = "<group>"; };
+		32FA0B512C8197B7005E4FDB /* ScamvengerServer */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ScamvengerServer; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +41,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		32FA0B4D2C8197B7005E4FDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32FA0B652C819CDE005E4FDB /* Vapor in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -34,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				322F136E2C8071DE00786766 /* Scamvenger Hunt */,
+				32FA0B512C8197B7005E4FDB /* ScamvengerServer */,
 				322F136D2C8071DE00786766 /* Products */,
+				32FA0B622C819CB3005E4FDB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -42,8 +66,16 @@
 			isa = PBXGroup;
 			children = (
 				322F136C2C8071DE00786766 /* Scamvenger Hunt.app */,
+				32FA0B502C8197B7005E4FDB /* ScamvengerServer.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		32FA0B622C819CB3005E4FDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,6 +104,29 @@
 			productReference = 322F136C2C8071DE00786766 /* Scamvenger Hunt.app */;
 			productType = "com.apple.product-type.application";
 		};
+		32FA0B4F2C8197B7005E4FDB /* ScamvengerServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32FA0B5E2C8197B8005E4FDB /* Build configuration list for PBXNativeTarget "ScamvengerServer" */;
+			buildPhases = (
+				32FA0B4C2C8197B7005E4FDB /* Sources */,
+				32FA0B4D2C8197B7005E4FDB /* Frameworks */,
+				32FA0B4E2C8197B7005E4FDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				32FA0B512C8197B7005E4FDB /* ScamvengerServer */,
+			);
+			name = ScamvengerServer;
+			packageProductDependencies = (
+				32FA0B642C819CDE005E4FDB /* Vapor */,
+			);
+			productName = ScamvengerServer;
+			productReference = 32FA0B502C8197B7005E4FDB /* ScamvengerServer.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -83,6 +138,9 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					322F136B2C8071DE00786766 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					32FA0B4F2C8197B7005E4FDB = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -98,12 +156,14 @@
 			mainGroup = 322F13632C8071DE00786766;
 			packageReferences = (
 				322F14282C80E43600786766 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				32FA0B632C819CDE005E4FDB /* XCRemoteSwiftPackageReference "vapor" */,
 			);
 			productRefGroup = 322F136D2C8071DE00786766 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				322F136B2C8071DE00786766 /* Scamvenger Hunt */,
+				32FA0B4F2C8197B7005E4FDB /* ScamvengerServer */,
 			);
 		};
 /* End PBXProject section */
@@ -116,10 +176,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		32FA0B4E2C8197B7005E4FDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		322F13682C8071DE00786766 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32FA0B4C2C8197B7005E4FDB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -308,6 +382,64 @@
 			};
 			name = Release;
 		};
+		32FA0B5C2C8197B8005E4FDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ScamvengerServer/ScamvengerServer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ScamvengerServer/Preview Content\"";
+				DEVELOPMENT_TEAM = XL5JK4F896;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swiftinsg.ScamvengerServer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		32FA0B5D2C8197B8005E4FDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ScamvengerServer/ScamvengerServer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ScamvengerServer/Preview Content\"";
+				DEVELOPMENT_TEAM = XL5JK4F896;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swiftinsg.ScamvengerServer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -329,6 +461,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		32FA0B5E2C8197B8005E4FDB /* Build configuration list for PBXNativeTarget "ScamvengerServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32FA0B5C2C8197B8005E4FDB /* Debug */,
+				32FA0B5D2C8197B8005E4FDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -340,6 +481,14 @@
 				minimumVersion = 2.5.0;
 			};
 		};
+		32FA0B632C819CDE005E4FDB /* XCRemoteSwiftPackageReference "vapor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/vapor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.104.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -347,6 +496,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 322F14282C80E43600786766 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		32FA0B642C819CDE005E4FDB /* Vapor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 32FA0B632C819CDE005E4FDB /* XCRemoteSwiftPackageReference "vapor" */;
+			productName = Vapor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
