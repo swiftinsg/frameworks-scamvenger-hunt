@@ -12,6 +12,7 @@ struct PencilKitView: View {
     
     @State private var showingValidationScreen = false
     @State private var pkCanvasView = PKCanvasView()
+    @State private var pkToolPicker = PKToolPicker()
     
     var body: some View {
         VStack(spacing: 0) {
@@ -36,6 +37,8 @@ struct PencilKitView: View {
                     
                     VStack(alignment: .trailing) {
                         Button("Done") {
+                            pkToolPicker.setVisible(false, forFirstResponder: pkCanvasView)
+                            pkToolPicker.addObserver(pkCanvasView)
                             showingValidationScreen.toggle()
                         }
                         .buttonStyle(.borderedProminent)
@@ -48,9 +51,13 @@ struct PencilKitView: View {
             }
             .padding([.horizontal, .top])
             GeometryReader { geometry in
-                SketchCanvas(canvasView: $pkCanvasView)
+                SketchCanvas(canvasView: $pkCanvasView, picker: $pkToolPicker)
                     .sheet(isPresented: $showingValidationScreen) {
                         PKValidationScreen(geometry: geometry, pkCanvasView: $pkCanvasView)
+                            .onDisappear {
+                                pkToolPicker.setVisible(true, forFirstResponder: pkCanvasView)
+                                pkToolPicker.removeObserver(pkCanvasView)
+                            }
                     }
             }
         }

@@ -10,10 +10,9 @@ import PencilKit
 
 struct SketchCanvas: UIViewRepresentable {
     @Binding var canvasView: PKCanvasView
-    let picker = PKToolPicker.init()
+    @Binding var picker: PKToolPicker
     
     func makeUIView(context: Context) -> PKCanvasView {
-        self.canvasView.tool = PKInkingTool(.pen, color: .black, width: 15)
         self.canvasView.becomeFirstResponder()
         self.canvasView.drawingPolicy = .pencilOnly
         self.picker.showsDrawingPolicyControls = false
