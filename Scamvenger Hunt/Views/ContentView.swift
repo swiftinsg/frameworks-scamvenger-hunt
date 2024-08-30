@@ -23,7 +23,7 @@ struct ContentView: View {
             case .playingIdle:
                 PlayingIdleView()
             case .playing(let station):
-                GamePlayingView(station: station)
+                StationView(station: station)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             }
         }
