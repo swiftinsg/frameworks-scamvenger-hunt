@@ -27,7 +27,7 @@ struct RoomQRScannerView: View {
             
             Text("Scan the room’s QR code to start the station.")
             
-            CodeScannerView(codeTypes: [.qr], simulatedData: game.currentStation!.stationQRContent) { result in
+            CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, simulatedData: game.currentStation!.stationQRContent) { result in
                 switch result {
                 case .success(let data):
                     if data.string == game.currentStation!.stationQRContent {
