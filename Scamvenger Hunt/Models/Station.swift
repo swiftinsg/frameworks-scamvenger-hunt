@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum Station: CaseIterable, Equatable {
+enum Station: String, CaseIterable, Equatable {
     case coreHapticsAndNearbyInteractions
     case mapKit
     case userNotificationsAndWidgetKit
