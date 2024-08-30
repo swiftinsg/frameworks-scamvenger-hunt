@@ -46,7 +46,7 @@ class Game {
     }
     
     var completedStations: Set<Station> = []
-    var currentStation: Station? = .coreHapticsAndNearbyInteractions
+    var currentStation: Station? = .mapKit
     
     func setCurrentPlayer(to index: Int) {
         currentPlayerIndex = index
