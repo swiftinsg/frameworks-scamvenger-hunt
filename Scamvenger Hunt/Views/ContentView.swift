@@ -12,14 +12,22 @@ struct ContentView: View {
     @Environment(Game.self) private var game
     
     var body: some View {
-        switch game.state {
-        case .setUp:
-            SetUpView()
-        case .playingIdle:
-            PlayingIdleView()
-        case .playing(let station):
-            EmptyView()
+        VStack {
+            if game.state != .setUp {
+                TimerView()
+            }
+            
+            switch game.state {
+            case .setUp:
+                SetUpView()
+            case .playingIdle:
+                PlayingIdleView()
+            case .playing(let station):
+                StationView(station: station)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            }
         }
+        .tint(game.accentColor)
     }
 }
 

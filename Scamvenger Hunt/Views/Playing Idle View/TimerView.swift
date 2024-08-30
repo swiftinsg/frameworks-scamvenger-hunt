@@ -51,7 +51,7 @@ struct TimerView: View {
                 }
             
         }
-        .frame(height: 48)
+        .frame(height: 64)
         .onChange(of: (game.currentPlayerStartDate ?? .distantPast), initial: true) { oldValue, newValue in
             if let endDate = game.currentPlayerEndDate {
                 timerTrackOpacity = 0

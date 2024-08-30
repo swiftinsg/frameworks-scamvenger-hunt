@@ -9,25 +9,46 @@ import SwiftUI
 
 struct HintCardView: View {
     
-    var hint: String
+    @Environment(Game.self) private var game
+    
+    @State private var isScannerPresented = false
     
     var body: some View {
         CardView(title: "Next Location Hint") {
-            Text(hint)
-                .font(.title)
-                .multilineTextAlignment(.leading)
-                .lineLimit(7)
-            Spacer(minLength: 0)
-            
-            Button("I’ve Arrived") {
-                
+            if let hint = game.currentStation?.hint {
+                ZStack {
+                    if let text = hint.text {
+                        Text(text)
+                            .font(.title)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(7)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                    }
+                    
+                    if let image = hint.image {
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: hint.imageAlignment)
+                            .padding(-16)
+                    }
+                    
+                    Button("I’ve Arrived") {
+                        isScannerPresented.toggle()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                }
+            } else {
+                Text("All stations are in use right now. Please try again later.")
+                    .font(.title)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(7)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             }
-            .buttonStyle(.borderedProminent)
-            .frame(maxWidth: .infinity, alignment: .trailing)
+        }
+        .sheet(isPresented: $isScannerPresented) {
+            RoomQRScannerView()
         }
     }
-}
-
-#Preview {
-    HintCardView(hint: "“Sean’s Credit Card” left behind\nThis item is no longer detected near you.\nIt was last seen near Dunearn Rd and Scotts Rd.")
 }

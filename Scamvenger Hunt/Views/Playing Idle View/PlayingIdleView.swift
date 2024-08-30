@@ -13,20 +13,17 @@ struct PlayingIdleView: View {
     
     var body: some View {
         VStack {
-            TimerView()
-            
-            HintCardView(hint: "The police have requested your help to assist in the case. Go over to the neighbourhood police centre by taking seven stops towards Dhoby Ghaut, and then one stop towards Marina South Pier, where the robbery was first reported.")
+            HintCardView()
                 .padding(.horizontal)
                 .padding(.top, 8)
             
             HStack {
                 BadgesCardView()
-                RoundedRectangle(cornerRadius: 16)
+                ExpenditureCardView()
             }
             .padding(.horizontal)
         }
         .padding(.bottom)
-        .tint(game.accentColor)
     }
 }
 

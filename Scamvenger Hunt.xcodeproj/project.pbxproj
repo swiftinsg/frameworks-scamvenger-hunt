@@ -6,6 +6,10 @@
 	objectVersion = 70;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		322F142A2C80E43600786766 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 322F14292C80E43600786766 /* CodeScanner */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		322F136C2C8071DE00786766 /* Scamvenger Hunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scamvenger Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -19,6 +23,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				322F142A2C80E43600786766 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +66,7 @@
 			);
 			name = "Scamvenger Hunt";
 			packageProductDependencies = (
+				322F14292C80E43600786766 /* CodeScanner */,
 			);
 			productName = "Scamvenger Hunt";
 			productReference = 322F136C2C8071DE00786766 /* Scamvenger Hunt.app */;
@@ -90,6 +96,9 @@
 				Base,
 			);
 			mainGroup = 322F13632C8071DE00786766;
+			packageReferences = (
+				322F14282C80E43600786766 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = 322F136D2C8071DE00786766 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -321,6 +330,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		322F14282C80E43600786766 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		322F14292C80E43600786766 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 322F14282C80E43600786766 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 322F13642C8071DE00786766 /* Project object */;
 }

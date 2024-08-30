@@ -23,7 +23,7 @@ struct CurrentPlayerBubbleView: View {
                     .scaledToFill()
             }
         }
-        .frame(width: 32, height: 32)
+        .frame(width: 48, height: 48)
         .background(.white)
         .clipShape(.circle)
     }
