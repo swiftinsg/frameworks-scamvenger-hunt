@@ -39,8 +39,19 @@ struct MapKitView: View {
                     
                     Spacer()
                     
-                    Text(Date.now, style: .date)
-                        .foregroundStyle(.secondary)
+                    VStack(alignment: .trailing) {
+                        Button("Done") {
+                            if mapData.locationResults.count >= 6 {
+                                game.stationCompleted(.mapKit)
+                            } else {
+                                isErrorPresented = true
+                            }
+                        }
+                        .buttonStyle(.borderedProminent)
+                        
+                        Text(Date.now, style: .date)
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
             .padding(.leading)
@@ -77,16 +88,6 @@ struct MapKitView: View {
                         }
                     }
                     .listStyle(.plain)
-                    
-                    Button("Submit") {
-                        if mapData.locationResults.count >= 6 {
-                            game.stationCompleted(.mapKit)
-                        } else {
-                            isErrorPresented = true
-                        }
-                    }
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 
                 Map(position: .constant(.automatic), selection: .constant(nil)) {

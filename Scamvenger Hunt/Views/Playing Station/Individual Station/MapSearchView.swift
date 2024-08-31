@@ -39,7 +39,7 @@ struct MapSearchView: View {
             }
             
             if mapData.locationResults.isEmpty {
-                ContentUnavailableView.search(text: locationSearchQuery)
+                ContentUnavailableView("Search to find locations", systemImage: "magnifyingglass")
             } else {
                 List {
                     ForEach(mapData.locationResults, id: \.placemark.coordinate.latitude) { location in
