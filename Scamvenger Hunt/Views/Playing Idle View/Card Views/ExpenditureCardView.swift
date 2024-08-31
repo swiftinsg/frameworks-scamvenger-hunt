@@ -70,9 +70,30 @@ struct ExpenditureCardView: View {
                 }
                 
                 VStack {
+                    List(data) { data in
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(data.storeName)
+                                Text(data.date.formatted(date: .abbreviated, time: .omitted))
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            Text("$\(data.amount, specifier: "%.2f")")
+                        }
+                        .listRowBackground(Color.accentColor.opacity(0.25))
+                    }
+                    .listStyle(.plain)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .scrollIndicators(.never)
+                    .scrollContentBackground(.hidden)
+                    .padding(.horizontal)
+                    .padding(.top, -30)
+                    
                     Button("Scan Receipt") {
                         
                     }
+                    .buttonStyle(.borderedProminent)
                 }
                 .frame(maxWidth: .infinity)
             }
