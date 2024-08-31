@@ -13,8 +13,7 @@ struct PKValidationScreen: View {
     @State private var text = ""
     @State private var isErrorPresented = false
     
-    @State var geometry: GeometryProxy
-    @Binding var pkCanvasView: PKCanvasView
+    @State var image: UIImage
     
     @Environment(Game.self) private var game
     @Environment(\.dismiss) private var dismiss
@@ -28,21 +27,25 @@ struct PKValidationScreen: View {
                 .font(.title3)
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
-            Image(uiImage: pkCanvasView.drawing.image(from: CGRect(origin: CGPoint.zero, size: CGSize(width: geometry.size.width, height: geometry.size.height)), scale: 1.0))
+            Image(uiImage: image)
                 .resizable()
                 .scaledToFit()
                 .padding()
                 .border(.secondary, width: 4)
-            TextField("Enter Validation Password", text: $text)
-            Button("Submit") {
-                if text == "nevergonnagiveyouup" {
-                    dismiss()
-                    game.stationCompleted(.pencilKit)
-                } else {
-                    isErrorPresented.toggle()
+            HStack(spacing: 15) {
+                TextField("Enter Validation Password", text: $text)
+                Button("Submit") {
+                    if text == "nevergonnagiveyouup" {
+                        dismiss()
+                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                        game.stationCompleted(.pencilKit)
+                    } else {
+                        isErrorPresented.toggle()
+                    }
                 }
+                .disabled(text.isEmpty)
             }
-            .disabled(text.isEmpty)
+            .padding(.vertical)
         }
         .padding()
         .alert("Incorrect Password", isPresented: $isErrorPresented) {

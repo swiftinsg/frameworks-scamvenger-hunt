@@ -24,7 +24,7 @@ struct ReviewFacesView: View {
                 .multilineTextAlignment(.center)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
+                HStack(spacing: 30) {
                     ForEach(setUp.temporaryPlayers, id: \.id) { player in
                         TemporaryPlayerCircleView(player: player)
                     }
@@ -37,7 +37,6 @@ struct ReviewFacesView: View {
                 Button("Retake Photo") {
                     withAnimation {
                         showingCamera = true
-                        setUp.reset()
                     }
                 }
                 .buttonStyle(.bordered)
@@ -52,6 +51,5 @@ struct ReviewFacesView: View {
                 .disabled(setUp.temporaryPlayers.count > 4 || setUp.temporaryPlayers.isEmpty)
             }
         }
-        .padding()
     }
 }
