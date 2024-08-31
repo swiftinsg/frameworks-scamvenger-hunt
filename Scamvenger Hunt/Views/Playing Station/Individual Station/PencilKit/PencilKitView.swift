@@ -53,7 +53,7 @@ struct PencilKitView: View {
             GeometryReader { geometry in
                 SketchCanvas(canvasView: $pkCanvasView, picker: $pkToolPicker)
                     .sheet(isPresented: $showingValidationScreen) {
-                        PKValidationScreen(geometry: geometry, pkCanvasView: $pkCanvasView)
+                        PKValidationScreen(image: pkCanvasView.drawing.image(from: CGRect(origin: CGPoint.zero, size: CGSize(width: geometry.size.width, height: geometry.size.height)), scale: 1.0))
                             .onDisappear {
                                 pkToolPicker.setVisible(true, forFirstResponder: pkCanvasView)
                                 pkToolPicker.removeObserver(pkCanvasView)
