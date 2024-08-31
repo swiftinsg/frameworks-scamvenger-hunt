@@ -21,6 +21,7 @@ struct WelcomeView: View {
                 game.groupName = newValue
             }))
             .multilineTextAlignment(.center)
+            .padding(.top)
             Spacer()
             
             HStack {
@@ -32,16 +33,17 @@ struct WelcomeView: View {
             .font(.title)
             .fontWeight(.bold)
             
-            Text("Get started by taking a group photo.")
+            Text("Get started by filling in your group name at the top, and then taking a group photo.")
                 .font(.title3)
                 .multilineTextAlignment(.center)
             
             Button {
                 showingCamera.toggle()
             } label: {
-                Text("Take Photo")
+                Text("Take Group Photo")
             }
             .buttonStyle(.borderedProminent)
+            .disabled(game.groupName.isEmpty)
             
             Spacer()
         }
