@@ -28,7 +28,7 @@ struct TemporaryPlayerCircleView: View {
                 }
             }
             .scaledToFit()
-            .frame(width: 200)
+            .frame(width: 200, height: 200)
             .overlay(alignment: .topTrailing) {
                 Button {
                     withAnimation {

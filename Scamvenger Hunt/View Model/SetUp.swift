@@ -31,6 +31,7 @@ class SetUp {
             
             if let results = request.results as? [VNFaceObservation] {
                 DispatchQueue.main.async {
+                    self.reset()
                     self.extractFaces(image: image, observations: results)
                 }
             }
@@ -100,7 +101,7 @@ class SetUp {
         self.temporaryPlayers = tempArr
     }
     
-    func reset() {
+    private func reset() {
         temporaryPlayers = []
     }
 }
