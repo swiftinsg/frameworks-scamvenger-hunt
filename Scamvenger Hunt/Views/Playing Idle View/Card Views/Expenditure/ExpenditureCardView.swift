@@ -36,14 +36,10 @@ struct ExpenditureCardView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .sheet(isPresented: $receiptScanner.showConfirmationSheet) {
-            ConfirmNewExpenditureView(
-                storeName: $receiptScanner.tempStoreName,
-                date: $receiptScanner.tempDate,
-                total: $receiptScanner.tempTotal
-            )
-            .environment(game)
-            .environmentObject(expenditureData)
-            .environmentObject(receiptScanner)
+            ConfirmNewExpenditureView(expenditures: $receiptScanner.tempExpenditures)
+                .environment(game)
+                .environmentObject(expenditureData)
+                .environmentObject(receiptScanner)
         }
     }
 }

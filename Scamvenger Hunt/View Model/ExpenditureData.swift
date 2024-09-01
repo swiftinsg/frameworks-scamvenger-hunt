@@ -11,9 +11,9 @@ class ExpenditureData: ObservableObject {
     
     var expenditures: [Expenditure] = []
 
-    func addExpenditure(expenditure: Expenditure) {
+    func addExpenditure(expenditures: [Expenditure]) {
         withAnimation {
-            self.expenditures.append(expenditure)
+            self.expenditures.append(contentsOf: expenditures)
             self.expenditures.sort(by: { $0.date > $1.date })
         }
     }

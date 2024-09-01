@@ -11,9 +11,7 @@ import VisionKit
 
 class ReceiptScanner: NSObject, ObservableObject, VNDocumentCameraViewControllerDelegate {
     
-    @Published var tempStoreName: String = ""
-    @Published var tempDate: Date = Date()
-    @Published var tempTotal: Double = 0
+    @Published var tempExpenditures: [Expenditure] = []
     @Published var showConfirmationSheet: Bool = false
     
     func scanReceipt() {
@@ -24,8 +22,11 @@ class ReceiptScanner: NSObject, ObservableObject, VNDocumentCameraViewController
     
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
         if scan.pageCount > 0 {
-            let image = scan.imageOfPage(at: 0)
-            recogniseText(in: image)
+            for number in 0..<scan.pageCount {
+                let image = scan.imageOfPage(at: number)
+                recogniseText(in: image)
+            }
+            showConfirmationSheet = true
         }
         controller.dismiss(animated: true, completion: nil)
     }
@@ -61,25 +62,29 @@ class ReceiptScanner: NSObject, ObservableObject, VNDocumentCameraViewController
     
     private func parseReceiptData(from text: String) {
         let lines = text.split(separator: "\n")
+        var name = ""
+        if lines.count > 0 {
+            name = String(lines[0])
+        }
         
-        self.tempStoreName = String(lines[0])
+        var date = Date()
+        if lines.count > 1 {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMMM yyyy"
+            date = dateFormatter.date(from: String(lines[1])) ?? Date()
+        }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM yyyy"
-        let date = dateFormatter.date(from: String(lines[1])) ?? Date()
-        self.tempDate = date
-        
+        var total = 0.0
         for line in lines {
             if line.hasPrefix("Total: $") {
-                self.tempTotal = Double(line.replacingOccurrences(of: "Total: $", with: "")) ?? 0
+                total = Double(line.replacingOccurrences(of: "Total: $", with: "")) ?? 0
             }
         }
-        showConfirmationSheet = true
+        
+        self.tempExpenditures.append(Expenditure(date: date, storeName: name, amount: total))
     }
     
     func reset() {
-        tempStoreName = ""
-        tempDate = Date()
-        tempTotal = 0
+        tempExpenditures = []
     }
 }

@@ -9,9 +9,7 @@ import SwiftUI
 
 struct ConfirmNewExpenditureView: View {
     
-    @Binding var storeName: String
-    @Binding var date: Date
-    @Binding var total: Double
+    @Binding var expenditures: [Expenditure]
     
     @Environment(\.dismiss) private var dismiss
     @Environment(Game.self) private var game
@@ -33,57 +31,31 @@ struct ConfirmNewExpenditureView: View {
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
             
-            Divider()
-            VStack {
-                LabeledContent {
-                    TextField("Store Name", text: $storeName)
-                        .multilineTextAlignment(.trailing)
-                } label: {
-                    Text("Store Name")
-                        .fontWeight(.bold)
-                        .padding(.horizontal)
-                }
-                
-                Divider()
-                
-                LabeledContent {
-                    DatePicker("", selection: $date, displayedComponents: .date)
-                } label: {
-                    Text("Date")
-                        .fontWeight(.bold)
-                        .padding(.horizontal)
-                }
-                
-                Divider()
-                
-                LabeledContent {
-                    TextField("Total", value: $total, format: .currency(code: "SGD"))
-                        .keyboardType(.decimalPad)
-                        .multilineTextAlignment(.trailing)
-                } label: {
-                    Text("Total")
-                        .fontWeight(.bold)
-                        .padding(.horizontal)
+            TabView {
+                ForEach($receiptScanner.tempExpenditures, id: \.id) { $expenditure in
+                    EditExpenditureView(storeName: $expenditure.storeName, date: $expenditure.date, total: $expenditure.amount)
                 }
             }
-            Divider()
+            .tabViewStyle(.page(indexDisplayMode: .automatic))
             
             Spacer()
             
             Button {
-                expenditureData.addExpenditure(expenditure: Expenditure(date: date, storeName: storeName, amount: total))
+                expenditureData.addExpenditure(expenditures: receiptScanner.tempExpenditures)
                 dismiss()
-                receiptScanner.reset()
                 if expenditureData.expenditures.count == 10 {
                     game.stationCompleted(.swiftCharts)
                 }
             } label: {
-                Text("Add Expenditure")
+                Text("Add ^[\(receiptScanner.tempExpenditures.count) Expenditure](inflect: true)")
                     .padding(10)
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
         }
         .padding(30)
+        .onDisappear {
+            receiptScanner.reset()
+        }
     }
 }
