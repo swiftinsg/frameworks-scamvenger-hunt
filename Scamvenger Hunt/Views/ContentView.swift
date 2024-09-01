@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(Game.self) private var game
+    @StateObject private var expenditureData = ExpenditureData()
     
     var body: some View {
         VStack {
@@ -22,6 +23,7 @@ struct ContentView: View {
                 SetUpView()
             case .playingIdle:
                 PlayingIdleView()
+                    .environmentObject(expenditureData)
             case .playing(let station):
                 StationView(station: station)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
