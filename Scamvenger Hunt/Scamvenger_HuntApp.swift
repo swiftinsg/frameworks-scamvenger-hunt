@@ -22,6 +22,7 @@ struct Scamvenger_HuntApp: App {
             ContentView()
                 .environment(game)
                 .fontDesign(.monospaced)
+                .ignoresSafeArea(.keyboard, edges: .bottom)
         }
     }
 }

@@ -10,26 +10,38 @@ import Charts
 
 struct ExpenditureCardView: View {
     
-    @State private var counter = 0
+    @StateObject private var receiptScanner = ReceiptScanner()
     @State private var expenditureData = ExpenditureData()
     
     var body: some View {
         CardView(title: "Sean’s Expenditure") {
             HStack {
-                ExpenditureChartView(data: expenditureData.sortedExpenditures)
-                    .environment(expenditureData)
-                VStack {
-                    ExpenditureListView(data: $expenditureData.expenditures)
+                if !expenditureData.expenditures.isEmpty {
+                    ExpenditureChartView(data: $expenditureData.expenditures)
                         .environment(expenditureData)
+                }
+                VStack {
+                    if !expenditureData.expenditures.isEmpty {
+                        ExpenditureListView(data: $expenditureData.expenditures)
+                            .environment(expenditureData)
+                    }
                     
                     Button("Scan Receipt") {
-                        expenditureData.addExpenditure(expenditure: Expenditure(date: Date().addingTimeInterval(TimeInterval(86400 * counter)), storeName: "storey", amount: 120.69))
-                        counter += 1
+                        receiptScanner.scanReceipt()
                     }
                     .buttonStyle(.borderedProminent)
                 }
                 .frame(maxWidth: .infinity)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .sheet(isPresented: $receiptScanner.showConfirmationSheet) {
+            ConfirmNewExpenditureView(
+                storeName: $receiptScanner.tempStoreName,
+                date: $receiptScanner.tempDate,
+                total: $receiptScanner.tempTotal
+            )
+            .environment(expenditureData)
         }
     }
 }
