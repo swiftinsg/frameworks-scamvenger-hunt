@@ -10,6 +10,9 @@ import Charts
 
 struct ExpenditureCardView: View {
     
+    @State private var showingScanner = false
+    @State private var showingConfirmationSheet = false
+    
     @StateObject private var receiptScanner = ReceiptScanner()
     @EnvironmentObject private var expenditureData: ExpenditureData
     
@@ -27,7 +30,7 @@ struct ExpenditureCardView: View {
                     }
                     
                     Button("Scan Receipt") {
-                        receiptScanner.scanReceipt()
+                        showingScanner.toggle()
                     }
                     .buttonStyle(.borderedProminent)
                 }
@@ -35,11 +38,27 @@ struct ExpenditureCardView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .sheet(isPresented: $receiptScanner.showConfirmationSheet) {
+        .sheet(isPresented: $showingConfirmationSheet) {
             ConfirmNewExpenditureView(expenditures: $receiptScanner.tempExpenditures)
                 .environment(game)
                 .environmentObject(expenditureData)
                 .environmentObject(receiptScanner)
+        }
+        .fullScreenCover(isPresented: $showingScanner) {
+            ReceiptScannerView { result in
+                switch result {
+                case .success(let scannedImages):
+                    for image in scannedImages {
+                        receiptScanner.recogniseText(in: image)
+                    }
+                    showingConfirmationSheet = true
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                showingScanner = false
+            } didCancel: {
+                showingScanner = false
+            }
         }
     }
 }

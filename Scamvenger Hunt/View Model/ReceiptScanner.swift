@@ -5,33 +5,14 @@
 //  Created by Tristan Chay on 01/09/2024.
 //
 
-import Foundation
+import SwiftUI
 import Vision
-import VisionKit
 
-class ReceiptScanner: NSObject, ObservableObject, VNDocumentCameraViewControllerDelegate {
+class ReceiptScanner: NSObject, ObservableObject {
     
     @Published var tempExpenditures: [Expenditure] = []
-    @Published var showConfirmationSheet: Bool = false
     
-    func scanReceipt() {
-        let scanViewController = VNDocumentCameraViewController()
-        scanViewController.delegate = self
-        UIApplication.shared.windows.first?.rootViewController?.present(scanViewController, animated: true, completion: nil)
-    }
-    
-    func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-        if scan.pageCount > 0 {
-            for number in 0..<scan.pageCount {
-                let image = scan.imageOfPage(at: number)
-                recogniseText(in: image)
-            }
-            showConfirmationSheet = true
-        }
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-    private func recogniseText(in image: UIImage) {
+    func recogniseText(in image: UIImage) {
         guard let cgImage = image.cgImage else { return }
         
         let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])

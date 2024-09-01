@@ -30,6 +30,8 @@ struct EditExpenditureView: View {
                 
                 LabeledContent {
                     DatePicker("", selection: $date, displayedComponents: .date)
+                        .labelsHidden()
+                        .id(date)
                 } label: {
                     Text("Date")
                         .fontWeight(.bold)
