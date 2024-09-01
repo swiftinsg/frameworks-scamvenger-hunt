@@ -51,13 +51,17 @@ struct ExpenditureCardView: View {
                     for image in scannedImages {
                         receiptScanner.recogniseText(in: image)
                     }
-                    showingConfirmationSheet = true
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
                 showingScanner = false
             } didCancel: {
                 showingScanner = false
+            }
+            .onDisappear {
+                if !receiptScanner.tempExpenditures.isEmpty {
+                    showingConfirmationSheet = true
+                }
             }
         }
     }
