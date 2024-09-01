@@ -43,7 +43,7 @@ struct ConfirmNewExpenditureView: View {
             Button {
                 expenditureData.addExpenditure(expenditures: receiptScanner.tempExpenditures)
                 dismiss()
-                if expenditureData.expenditures.count == 10 {
+                if expenditureData.expenditures.count >= 10 && !game.completedStations.contains(.swiftCharts) {
                     game.stationCompleted(.swiftCharts)
                 }
             } label: {
