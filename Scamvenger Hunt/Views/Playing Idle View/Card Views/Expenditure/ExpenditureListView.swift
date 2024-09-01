@@ -9,21 +9,28 @@ import SwiftUI
 
 struct ExpenditureListView: View {
     
-    @Binding var data: [Expenditure]
+    @EnvironmentObject var expenditureData: ExpenditureData
     
     var body: some View {
-        List(data) { data in
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(data.storeName)
-                    Text(data.date.formatted(date: .abbreviated, time: .omitted))
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+        List {
+            ForEach(expenditureData.expenditures) { data in
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(data.storeName)
+                        Text(data.date.formatted(date: .abbreviated, time: .omitted))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                    Text("$\(data.amount, specifier: "%.2f")")
                 }
-                Spacer()
-                Text("$\(data.amount, specifier: "%.2f")")
+                .listRowBackground(Color.accentColor.opacity(0.25))
             }
-            .listRowBackground(Color.accentColor.opacity(0.25))
+            .onDelete { indexSet in
+                withAnimation {
+                    expenditureData.removeExpenditure(atOffsets: indexSet)
+                }
+            }
         }
         .listStyle(.plain)
         .clipShape(RoundedRectangle(cornerRadius: 16))

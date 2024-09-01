@@ -10,10 +10,10 @@ import Charts
 
 struct ExpenditureChartView: View {
     
-    @Binding var data: [Expenditure]
+    @EnvironmentObject var expenditureData: ExpenditureData
     
     var body: some View {
-        Chart(data) { point in
+        Chart(expenditureData.expenditures) { point in
             PointMark(
                 x: .value("Date", point.date),
                 y: .value("Expenditure (SGD)", point.amount)

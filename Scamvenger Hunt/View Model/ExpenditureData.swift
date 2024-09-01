@@ -9,12 +9,18 @@ import SwiftUI
 
 class ExpenditureData: ObservableObject {
     
-    var expenditures: [Expenditure] = []
+    @Published var expenditures: [Expenditure] = []
 
     func addExpenditure(expenditures: [Expenditure]) {
         withAnimation {
             self.expenditures.append(contentsOf: expenditures)
             self.expenditures.sort(by: { $0.date > $1.date })
+        }
+    }
+    
+    func removeExpenditure(atOffsets offset: IndexSet) {
+        withAnimation {
+            self.expenditures.remove(atOffsets: offset)
         }
     }
 }

@@ -22,11 +22,13 @@ struct ExpenditureCardView: View {
         CardView(title: "Sean’s Expenditure") {
             HStack {
                 if !expenditureData.expenditures.isEmpty {
-                    ExpenditureChartView(data: $expenditureData.expenditures)
+                    ExpenditureChartView()
+                        .environmentObject(expenditureData)
                 }
                 VStack {
                     if !expenditureData.expenditures.isEmpty {
-                        ExpenditureListView(data: $expenditureData.expenditures)
+                        ExpenditureListView()
+                            .environmentObject(expenditureData)
                     }
                     
                     Button("Scan Receipt") {
