@@ -20,6 +20,7 @@ struct PlayingIdleView: View {
             HStack {
                 BadgesCardView()
                 ExpenditureCardView()
+                    .environment(game)
             }
             .padding(.horizontal)
         }

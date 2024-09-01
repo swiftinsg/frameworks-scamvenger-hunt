@@ -15,22 +15,21 @@ struct ConfirmNewExpenditureView: View {
     
     @Environment(\.dismiss) private var dismiss
     @Environment(ExpenditureData.self) private var expenditureData
+    @Environment(Game.self) private var game
     
     var body: some View {
         VStack {
-            VStack(spacing: 15) {
-                HStack(spacing: 0) {
-                    Text("Add new ")
-                    Text("Expenditure")
-                        .background(.tint.opacity(0.4))
-                }
-                .font(.title)
-                .fontWeight(.bold)
-                
-                Text("Ensure that the Store Name, Date, and Total Amount is correct. Edit the information if necessary.")
-                    .multilineTextAlignment(.center)
+            HStack(spacing: 0) {
+                Text("Add new ")
+                Text("Expenditure")
+                    .background(.tint.opacity(0.4))
             }
-            .padding(.bottom)
+            .font(.title)
+            .fontWeight(.bold)
+            
+            Text("Ensure that the Store Name, Date, and Total Amount is correct. Edit the information if necessary.")
+                .multilineTextAlignment(.center)
+                .padding(.bottom)
             
             Divider()
             VStack {
@@ -72,6 +71,9 @@ struct ConfirmNewExpenditureView: View {
             Button {
                 expenditureData.addExpenditure(expenditure: Expenditure(date: date, storeName: storeName, amount: total))
                 dismiss()
+                if expenditureData.expenditures.count == 10 {
+                    game.stationCompleted(.swiftCharts)
+                }
             } label: {
                 Text("Add Expenditure")
                     .padding(10)

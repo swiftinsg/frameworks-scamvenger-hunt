@@ -13,6 +13,8 @@ struct ExpenditureCardView: View {
     @StateObject private var receiptScanner = ReceiptScanner()
     @State private var expenditureData = ExpenditureData()
     
+    @Environment(Game.self) private var game
+    
     var body: some View {
         CardView(title: "Sean’s Expenditure") {
             HStack {
@@ -42,6 +44,7 @@ struct ExpenditureCardView: View {
                 total: $receiptScanner.tempTotal
             )
             .environment(expenditureData)
+            .environment(game)
         }
     }
 }
