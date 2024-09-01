@@ -30,6 +30,6 @@ struct ExpenditureListView: View {
         .scrollIndicators(.never)
         .scrollContentBackground(.hidden)
         .padding(.horizontal)
-        .padding(.top, -30)
+        .padding(.top, -15)
     }
 }
