@@ -52,6 +52,7 @@ struct ConfirmNewExpenditureView: View {
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
+            .disabled(receiptScanner.tempExpenditures.map { $0.storeName.isEmpty }.contains(true))
         }
         .padding(30)
         .onDisappear {
