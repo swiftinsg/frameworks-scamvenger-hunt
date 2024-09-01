@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-@Observable
-class ExpenditureData {
+class ExpenditureData: ObservableObject {
     
     var expenditures: [Expenditure] = []
 

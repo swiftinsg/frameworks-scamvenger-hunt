@@ -14,8 +14,10 @@ struct ConfirmNewExpenditureView: View {
     @Binding var total: Double
     
     @Environment(\.dismiss) private var dismiss
-    @Environment(ExpenditureData.self) private var expenditureData
     @Environment(Game.self) private var game
+    
+    @EnvironmentObject private var receiptScanner: ReceiptScanner
+    @EnvironmentObject private var expenditureData: ExpenditureData
     
     var body: some View {
         VStack {
@@ -71,6 +73,7 @@ struct ConfirmNewExpenditureView: View {
             Button {
                 expenditureData.addExpenditure(expenditure: Expenditure(date: date, storeName: storeName, amount: total))
                 dismiss()
+                receiptScanner.reset()
                 if expenditureData.expenditures.count == 10 {
                     game.stationCompleted(.swiftCharts)
                 }

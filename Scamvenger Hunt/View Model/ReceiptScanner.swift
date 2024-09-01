@@ -30,7 +30,7 @@ class ReceiptScanner: NSObject, ObservableObject, VNDocumentCameraViewController
         controller.dismiss(animated: true, completion: nil)
     }
     
-    func recogniseText(in image: UIImage) {
+    private func recogniseText(in image: UIImage) {
         guard let cgImage = image.cgImage else { return }
         
         let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
@@ -75,5 +75,11 @@ class ReceiptScanner: NSObject, ObservableObject, VNDocumentCameraViewController
             }
         }
         showConfirmationSheet = true
+    }
+    
+    func reset() {
+        tempStoreName = ""
+        tempDate = Date()
+        tempTotal = 0
     }
 }

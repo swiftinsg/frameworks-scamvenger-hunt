@@ -10,6 +10,7 @@ import SwiftUI
 struct PlayingIdleView: View {
     
     @Environment(Game.self) private var game
+    @EnvironmentObject private var expenditureData: ExpenditureData
     
     var body: some View {
         VStack {
@@ -21,6 +22,7 @@ struct PlayingIdleView: View {
                 BadgesCardView()
                 ExpenditureCardView()
                     .environment(game)
+                    .environmentObject(expenditureData)
             }
             .padding(.horizontal)
         }
