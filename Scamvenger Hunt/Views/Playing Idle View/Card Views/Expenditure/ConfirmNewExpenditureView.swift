@@ -31,14 +31,23 @@ struct ConfirmNewExpenditureView: View {
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
             
-            TabView {
-                ForEach($receiptScanner.tempExpenditures, id: \.id) { $expenditure in
-                    EditExpenditureView(storeName: $expenditure.storeName, date: $expenditure.date, total: $expenditure.amount)
+            GeometryReader { geometry in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack {
+                        ForEach($receiptScanner.tempExpenditures, id: \.id) { $expenditure in
+                            EditExpenditureView(storeName: $expenditure.storeName, date: $expenditure.date, total: $expenditure.amount)
+                                .frame(width: geometry.size.width - 300, alignment: .trailing)
+                        }
+                        .scrollTransition { content, phase in
+                            content.scaleEffect(phase.isIdentity ? 1 : 0.85)
+                        }
+                    }
+                    .scrollTargetLayout()
                 }
+                .scrollTargetBehavior(.viewAligned(limitBehavior: .always))
+                .safeAreaPadding(.horizontal, 150)
             }
-            .tabViewStyle(.page(indexDisplayMode: .automatic))
-            
-            Spacer()
+            .padding(.horizontal, -30)
             
             Button {
                 expenditureData.addExpenditure(expenditures: receiptScanner.tempExpenditures)
