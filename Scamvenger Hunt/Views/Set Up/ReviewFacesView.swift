@@ -42,8 +42,10 @@ struct ReviewFacesView: View {
                 .buttonStyle(.bordered)
                 
                 Button {
-                    game.players = setUp.temporaryPlayers
-                    game.state = .playingIdle
+                    withAnimation {
+                        game.players = setUp.temporaryPlayers
+                        game.state = .playingIdle
+                    }
                 } label: {
                     Text("Continue")
                 }
