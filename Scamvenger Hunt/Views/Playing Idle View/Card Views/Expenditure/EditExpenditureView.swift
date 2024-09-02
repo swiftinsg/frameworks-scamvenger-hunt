@@ -16,7 +16,6 @@ struct EditExpenditureView: View {
     var body: some View {
             VStack {
                 VStack(spacing: 15) {
-                    Divider()
                     LabeledContent {
                         TextField("Store Name", text: $storeName)
                             .multilineTextAlignment(.trailing)
@@ -49,7 +48,6 @@ struct EditExpenditureView: View {
                             .fontWeight(.bold)
                             .padding(.horizontal)
                     }
-                    Divider()
                 }
             }
             .padding()

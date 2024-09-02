@@ -29,8 +29,10 @@ struct ExpenditureCardView: View {
                     if !expenditureData.expenditures.isEmpty {
                         ExpenditureListView()
                             .environmentObject(expenditureData)
+                    } else {
+                        Text("Sean has left his receipts all over Singapore. Scan them and analyse his $oon spending to find out more information about the robbery.")
+                            .multilineTextAlignment(.center)
                     }
-                    
                     Button("Scan Receipt") {
                         showingScanner.toggle()
                     }
