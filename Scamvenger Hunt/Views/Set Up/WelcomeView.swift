@@ -21,7 +21,7 @@ struct WelcomeView: View {
                 game.groupName = newValue
             }))
             .multilineTextAlignment(.center)
-            .padding(.top)
+
             Spacer()
             
             HStack {
