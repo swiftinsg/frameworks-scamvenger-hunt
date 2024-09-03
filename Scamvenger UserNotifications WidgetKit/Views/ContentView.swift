@@ -14,6 +14,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("Only press the button when the group is ready, pass the iPad to them immediately after pressing the button.")
+                .font(.title)
                 .multilineTextAlignment(.center)
             Button("Schedule Notifications (sends 60 seconds later)") {
                 notifications.sendNewBatch()
