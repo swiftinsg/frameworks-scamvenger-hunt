@@ -16,7 +16,7 @@ struct ContentView: View {
             Text("Only press the button when the group is ready, pass the iPad to them immediately after pressing the button.")
                 .font(.title)
                 .multilineTextAlignment(.center)
-            Button("Schedule Notifications (sends 60 seconds later)") {
+            Button("Schedule Notifications") {
                 notifications.sendNewBatch()
             }
             .buttonStyle(.borderedProminent)

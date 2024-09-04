@@ -12,8 +12,13 @@ import UserNotifications
 class Notifications {
     
     private let notifications: [String : String] = [
-        "TITLE" : "SUBTITLE",
-        "sig" : "ma"
+        "Candy Crush" : "Your lives have been refilled. Ready for another round?",
+        "Soonstagram" : "jiachenyee has requested to follow you.",
+        "Bank of Soonville" : "Incoming transfer of $62000 from Shaun",
+        "Music" : "New album released: Soon's Greatest Hits.",
+        "Soonpee" : "DONT MISS OUT ON THE NEW 9/9 SALES!",
+        "Shaun" : "Hope you wiped your iPad before the police siezed it, we can't risk them finding out where we kept the $oons!",
+        "Secure Vault Pro Max" : "Vault password due for change. Current password: 5348."
     ]
     
     init() {
@@ -22,18 +27,14 @@ class Notifications {
     
     func sendNewBatch() {
         self.removeAllNotifications()
-        
-        self.scheduleNotification(
-            title: "Police",
-            body: "Hey, we found Sean's iPad. Try digging around the Widgets and Notifications on his iPad to gather more information about the heist.",
-            seconds: 15
-        )
+        var seconds = TimeInterval(5)
         for notification in notifications {
-            self.scheduleNotification(title: notification.key, body: notification.value)
+            self.scheduleNotification(title: notification.key, body: notification.value, seconds: seconds)
+            seconds += 5
         }
     }
     
-    private func scheduleNotification(title: String, subtitle: String = "", body: String, seconds: TimeInterval = 60) {
+    private func scheduleNotification(title: String, subtitle: String = "", body: String, seconds: TimeInterval = 5) {
         let content = UNMutableNotificationContent()
         content.title = title
         if !subtitle.isEmpty {
