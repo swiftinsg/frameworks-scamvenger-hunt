@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ContentView: View {
     
@@ -33,11 +34,12 @@ struct ContentView: View {
                     }
                 }
             } else {
-                Text("Check that you've done these before handing the iPad over to a new group:")
-                    .font(.title3)
-                Text("1) Locked the vault widget\n2) Reset the puzzle widget (click on the empty square)\n3) Clicked the \"Start Activity\" button before closing this app.")
+                Text("Start/Reset the activity before handing the iPad over to the new group.")
                 HStack {
-                    Button("Start Activity") {
+                    Button("Start/Reset Activity") {
+                        Task {
+                            await resetWidgets()
+                        }
                         notifications.sendNewBatch()
                     }
                     .buttonStyle(.borderedProminent)
@@ -56,6 +58,16 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    func resetWidgets() async {
+        do {
+            try await ShuffleAppIntent().perform()
+        } catch {
+            print("error")
+        }
+        UserDefaults.vaultStore.set(0, forKey: "vaultState")
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
 
