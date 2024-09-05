@@ -11,7 +11,7 @@ import AppIntents
 struct MoveTopLeading: AppIntent {
     let position: Position = .topLeading
     
-    static var title: LocalizedStringResource = "Move tile"
+    static var title: LocalizedStringResource = "Move Top Leading"
     static var description = IntentDescription("Move certain tiles.")
     
     func perform() async throws -> some IntentResult {
@@ -107,7 +107,7 @@ struct MoveTopLeading: AppIntent {
 struct MoveTop: AppIntent {
     let position: Position = .top
     
-    static var title: LocalizedStringResource = "Move tile"
+    static var title: LocalizedStringResource = "Move Top"
     static var description = IntentDescription("Move certain tiles.")
     
     func perform() async throws -> some IntentResult {
@@ -203,7 +203,7 @@ struct MoveTop: AppIntent {
 struct MoveTopTrailing: AppIntent {
     let position: Position = .topTrailing
     
-    static var title: LocalizedStringResource = "Move tile"
+    static var title: LocalizedStringResource = "Move Top Trailig"
     static var description = IntentDescription("Move certain tiles.")
     
     func perform() async throws -> some IntentResult {
@@ -299,7 +299,7 @@ struct MoveTopTrailing: AppIntent {
 struct MoveLeading: AppIntent {
     let position: Position = .leading
     
-    static var title: LocalizedStringResource = "Move tile"
+    static var title: LocalizedStringResource = "Move Leading"
     static var description = IntentDescription("Move certain tiles.")
     
     func perform() async throws -> some IntentResult {
@@ -395,7 +395,7 @@ struct MoveLeading: AppIntent {
 struct MoveCenter: AppIntent {
     let position: Position = .center
     
-    static var title: LocalizedStringResource = "Move tile"
+    static var title: LocalizedStringResource = "Move Center"
     static var description = IntentDescription("Move certain tiles.")
     
     func perform() async throws -> some IntentResult {
@@ -491,7 +491,7 @@ struct MoveCenter: AppIntent {
 struct MoveTrailing: AppIntent {
     let position: Position = .trailing
     
-    static var title: LocalizedStringResource = "Move tile"
+    static var title: LocalizedStringResource = "Move Trailing"
     static var description = IntentDescription("Move certain tiles.")
     
     func perform() async throws -> some IntentResult {
@@ -587,7 +587,7 @@ struct MoveTrailing: AppIntent {
 struct MoveBottomLeading: AppIntent {
     let position: Position = .bottomLeading
     
-    static var title: LocalizedStringResource = "Move tile"
+    static var title: LocalizedStringResource = "Move Bottom Leading"
     static var description = IntentDescription("Move certain tiles.")
     
     func perform() async throws -> some IntentResult {
@@ -683,7 +683,7 @@ struct MoveBottomLeading: AppIntent {
 struct MoveBottom: AppIntent {
     let position: Position = .bottom
     
-    static var title: LocalizedStringResource = "Move tile"
+    static var title: LocalizedStringResource = "Move Bottom"
     static var description = IntentDescription("Move certain tiles.")
     
     func perform() async throws -> some IntentResult {
@@ -779,7 +779,7 @@ struct MoveBottom: AppIntent {
 struct MoveBottomTrailing: AppIntent {
     let position: Position = .bottomTrailing
     
-    static var title: LocalizedStringResource = "Move tile"
+    static var title: LocalizedStringResource = "Move Bottom Trailing"
     static var description = IntentDescription("Move certain tiles.")
     
     func perform() async throws -> some IntentResult {

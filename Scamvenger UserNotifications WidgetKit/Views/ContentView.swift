@@ -62,7 +62,7 @@ struct ContentView: View {
     
     func resetWidgets() async {
         do {
-            try await ShuffleAppIntent().perform()
+            let _ = try await ShuffleAppIntent().perform()
         } catch {
             print("error")
         }
