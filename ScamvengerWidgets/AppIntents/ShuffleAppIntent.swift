@@ -10,7 +10,7 @@ import AppIntents
 
 struct ShuffleAppIntent: AppIntent {
     
-    static var title: LocalizedStringResource = "Move tile"
+    static var title: LocalizedStringResource = "Shuffle tile"
     static var description = IntentDescription("Move certain tiles.")
     
     func perform() async throws -> some IntentResult {

@@ -15,7 +15,10 @@ struct CatWidget: Widget {
         StaticConfiguration(kind: kind, provider: CatWidgetProvider()) { entry in
             CatWidgetEntryView(entry: entry)
                 .containerBackground(for: .widget) {
-                    Image("cat")
+                    Button(intent: CatIntent()) {
+                        Image("cat")
+                    }
+                    .buttonStyle(.plain)
                 }
         }
         .supportedFamilies([.systemExtraLarge])
