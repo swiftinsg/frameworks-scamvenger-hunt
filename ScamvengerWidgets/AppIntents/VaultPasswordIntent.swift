@@ -29,7 +29,7 @@ struct VaultPasswordIntent: AppIntent {
         if code != "delete" && code != "check" {
             store.set(Int(String(currentInt) + code), forKey: "currentPassword")
         } else if code == "delete" {
-            var currentStringPassword = String(currentInt)
+            let currentStringPassword = String(currentInt)
             store.set(Int(String(currentStringPassword.dropLast())), forKey: "currentPassword")
         } else if code == "check" {
             if currentInt == 5348 {
