@@ -133,16 +133,16 @@ class Notifications {
     }
     
     private func scheduleHints() {
-        self.scheduleNotification(title: "Police", body: "We need your help to unlock the vault!", seconds: 30)
+        self.scheduleNotification(title: "Police", body: "We need your help to gather information from Sean's iPad! Try finding out information from the Widgets he has or Notifications that may appear.", seconds: 15)
         self.scheduleNotification(title: "Police", body: "We've cracked the code! Read the note carefully.", seconds: 210)
         self.scheduleNotification(title: "Police", body: "Hmm... try piecing together the first word of each bulleted item in the note.", seconds: 390)
     }
     
     private func scheduleFakeNotifications() {
-        var seconds = TimeInterval(10)
+        var seconds = TimeInterval(25)
         for notification in fakeNotifications {
             self.scheduleNotification(title: notification.0, body: notification.1, seconds: seconds)
-            seconds += 5
+            seconds += 10
         }
     }
     
