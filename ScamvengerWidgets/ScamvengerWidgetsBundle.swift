@@ -14,6 +14,7 @@ struct ScamvengerWidgetsBundle: WidgetBundle {
         VaultWidget()
         Puzzle()
         BankWidget()
+        WorkoutWidget()
         CatWidget()
     }
 }
