@@ -15,7 +15,7 @@ struct CatIntent: AppIntent {
     func perform() async throws -> some IntentResult {
         let content = UNMutableNotificationContent()
         content.title = "Meow"
-        content.body = "Pommy cat meows at you."
+        content.body = "Pommy cat says hallo."
         content.sound = UNNotificationSound.default
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
