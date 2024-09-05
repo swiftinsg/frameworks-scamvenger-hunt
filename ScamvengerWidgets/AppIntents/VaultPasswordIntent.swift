@@ -24,16 +24,17 @@ struct VaultPasswordIntent: AppIntent {
     }
     
     func perform() async throws -> some IntentResult {
-        let currentInt = vaultSharedDefaults.integer(forKey: "currentPassword")
+        let store = UserDefaults.vaultStore
+        let currentInt = store.integer(forKey: "currentPassword")
         if code != "delete" && code != "check" {
-            vaultSharedDefaults.set(Int(String(currentInt) + code), forKey: "currentPassword")
+            store.set(Int(String(currentInt) + code), forKey: "currentPassword")
         } else if code == "delete" {
             var currentStringPassword = String(currentInt)
-            vaultSharedDefaults.set(Int(String(currentStringPassword.dropLast())), forKey: "currentPassword")
+            store.set(Int(String(currentStringPassword.dropLast())), forKey: "currentPassword")
         } else if code == "check" {
             if currentInt == 5348 {
-                vaultSharedDefaults.set(0, forKey: "currentPassword")
-                vaultSharedDefaults.set(2, forKey: "vaultState")
+                store.set(0, forKey: "currentPassword")
+                store.set(2, forKey: "vaultState")
             }
         }
         return .result()

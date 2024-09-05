@@ -11,7 +11,7 @@ import SwiftUI
 @main
 struct ScamvengerWidgetsBundle: WidgetBundle {
     var body: some Widget {
-//        MapViewWidget()
+        Puzzle()
         VaultWidget()
     }
 }

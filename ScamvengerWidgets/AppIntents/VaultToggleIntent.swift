@@ -12,13 +12,14 @@ struct VaultToggleIntent: AppIntent {
     static var title: LocalizedStringResource = "Toggle"
     
     func perform() async throws -> some IntentResult {
-        let currentInt = vaultSharedDefaults.integer(forKey: "vaultState")
+        let store = UserDefaults.vaultStore
+        let currentInt = store.integer(forKey: "vaultState")
         if currentInt == 0 {
-            vaultSharedDefaults.set(1, forKey: "vaultState")
+            store.set(1, forKey: "vaultState")
         } else if currentInt == 1 {
-            vaultSharedDefaults.set(2, forKey: "vaultState")
+            store.set(2, forKey: "vaultState")
         } else {
-            vaultSharedDefaults.set(0, forKey: "vaultState")
+            store.set(0, forKey: "vaultState")
         }
         return .result()
     }

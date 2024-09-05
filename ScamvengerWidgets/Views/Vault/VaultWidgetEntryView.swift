@@ -71,7 +71,6 @@ struct VaultWidgetEntryView: View {
         }
         .padding()
         .fontDesign(.monospaced)
-        .foregroundStyle(.black)
     }
     
     @ViewBuilder
@@ -85,8 +84,9 @@ struct VaultWidgetEntryView: View {
                 }
             }
             .frame(width: 40, height: 40)
+            .foregroundStyle(.primary)
         }
         .buttonStyle(.bordered)
-        .tint(.gray.opacity(0.75))
+        .tint(.secondary)
     }
 }
