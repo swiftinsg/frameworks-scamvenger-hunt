@@ -11,8 +11,9 @@ import SwiftUI
 @main
 struct ScamvengerWidgetsBundle: WidgetBundle {
     var body: some Widget {
-        Puzzle()
         VaultWidget()
+        Puzzle()
         BankWidget()
+        CatWidget()
     }
 }
