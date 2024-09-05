@@ -53,7 +53,7 @@ struct VaultWidgetEntryView: View {
                 Spacer()
                 Text("My favourite emoji:")
                     .fontWeight(.bold)
-                Text("😐")
+                Text("🧌")
                     .font(.system(size: 86))
                 Spacer()
                 Button(intent: VaultToggleIntent()) {
