@@ -47,6 +47,7 @@ struct ExpenditureCardView: View {
                 .environment(game)
                 .environmentObject(expenditureData)
                 .environmentObject(receiptScanner)
+                .ignoresSafeArea(.keyboard, edges: .bottom)
         }
         .fullScreenCover(isPresented: $showingScanner) {
             ReceiptScannerView { result in
