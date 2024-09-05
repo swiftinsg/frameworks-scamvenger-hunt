@@ -30,24 +30,24 @@ struct VaultWidgetEntryView: View {
             case .password:
                 Text(String(entry.password))
                 HStack {
-                    button(title: "1")
-                    button(title: "2")
-                    button(title: "3")
+                    VaultPinButton(title: "1")
+                    VaultPinButton(title: "2")
+                    VaultPinButton(title: "3")
                 }
                 HStack {
-                    button(title: "4")
-                    button(title: "5")
-                    button(title: "6")
+                    VaultPinButton(title: "4")
+                    VaultPinButton(title: "5")
+                    VaultPinButton(title: "6")
                 }
                 HStack {
-                    button(title: "7")
-                    button(title: "8")
-                    button(title: "9")
+                    VaultPinButton(title: "7")
+                    VaultPinButton(title: "8")
+                    VaultPinButton(title: "9")
                 }
                 HStack {
-                    button(title: "delete", systemName: "delete.backward")
-                    button(title: "0")
-                    button(title: "check", systemName: "checkmark")
+                    VaultPinButton(title: "delete", systemName: "delete.backward")
+                    VaultPinButton(title: "0")
+                    VaultPinButton(title: "check", systemName: "checkmark")
                 }
             case .unlocked:
                 Spacer()
@@ -71,22 +71,5 @@ struct VaultWidgetEntryView: View {
         }
         .padding()
         .fontDesign(.monospaced)
-    }
-    
-    @ViewBuilder
-    func button(title: String = "", systemName: String = "") -> some View {
-        Button(intent: VaultPasswordIntent(code: title)) {
-            Group {
-                if systemName.isEmpty {
-                    Text(title)
-                } else {
-                    Image(systemName: systemName)
-                }
-            }
-            .frame(width: 40, height: 40)
-            .foregroundStyle(.primary)
-        }
-        .buttonStyle(.bordered)
-        .tint(.secondary)
     }
 }
