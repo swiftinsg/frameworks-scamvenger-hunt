@@ -13,5 +13,6 @@ struct ScamvengerWidgetsBundle: WidgetBundle {
     var body: some Widget {
         Puzzle()
         VaultWidget()
+        BankWidget()
     }
 }
