@@ -51,8 +51,10 @@ struct VaultWidgetEntryView: View {
                 }
             case .unlocked:
                 Spacer()
-                Text("super duper top secret")
-                Text("sigma")
+                Text("My favourite emoji:")
+                    .fontWeight(.bold)
+                Text("😐")
+                    .font(.system(size: 86))
                 Spacer()
                 Button(intent: VaultToggleIntent()) {
                     HStack {
