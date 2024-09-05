@@ -33,17 +33,19 @@ struct ContentView: View {
                     }
                 }
             } else {
-                Text("Only press the button when the group is ready, pass the iPad to them immediately after pressing the button.")
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                Button("Schedule Notifications") {
-                    notifications.sendNewBatch()
+                Text("Check that you've done these before handing the iPad over to a new group:")
+                    .font(.title3)
+                Text("1) Locked the vault widget\n2) Reset the puzzle widget (click on the empty square)\n3) Clicked the \"Start Activity\" button before closing this app.")
+                HStack {
+                    Button("Start Activity") {
+                        notifications.sendNewBatch()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    Button("Stop Notifications", role: .destructive) {
+                        notifications.stop()
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
-                .buttonStyle(.borderedProminent)
-                Button("Stop Notifications", role: .destructive) {
-                    notifications.stop()
-                }
-                .buttonStyle(.borderedProminent)
             }
         }
         .padding()
