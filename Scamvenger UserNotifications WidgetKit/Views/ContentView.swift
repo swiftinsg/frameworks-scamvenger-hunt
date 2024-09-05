@@ -25,12 +25,10 @@ struct ContentView: View {
                         .frame(width: 200)
                         .textFieldStyle(.roundedBorder)
                     Button("Enter") {
-                        if text == "sigma" {
-                            withAnimation {
-                                showingControls = true
-                                text = ""
-                            }
-                        }
+                       verifyPassword()
+                    }
+                    .onSubmit {
+                        verifyPassword()
                     }
                 }
             } else {
@@ -56,6 +54,15 @@ struct ContentView: View {
                 withAnimation {
                     showingControls = false
                 }
+            }
+        }
+    }
+    
+    func verifyPassword() {
+        if text == "sigma" {
+            withAnimation {
+                showingControls = true
+                text = ""
             }
         }
     }
