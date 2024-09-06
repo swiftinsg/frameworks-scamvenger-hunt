@@ -46,7 +46,7 @@ class Game {
     }
     
     var completedStations: Set<Station> = []
-    var currentStation: Station? = .accessibility
+    var currentStation: Station? = .arKit
     
     func setCurrentPlayer(to index: Int) {
         currentPlayerIndex = index
@@ -72,6 +72,7 @@ class Game {
     }
     
     init() {
+        UIApplication.shared.isIdleTimerDisabled = true
         // Skip intro if simulator
 #if targetEnvironment(simulator)
         players = Player.PlayerColor.allCases.map({
