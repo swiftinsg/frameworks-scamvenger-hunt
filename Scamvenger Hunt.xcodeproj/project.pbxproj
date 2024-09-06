@@ -75,10 +75,20 @@
 			);
 			target = F36B86BA2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit */;
 		};
+		F33DA5DA2C8B7262008764B5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"View Model/Passcode.swift",
+				Views/Passcode/NumberPadButtonView.swift,
+				Views/Passcode/NumberPadView.swift,
+				Views/Passcode/PasscodeView.swift,
+			);
+			target = F36B86BA2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		322F136E2C8071DE00786766 /* Scamvenger Hunt */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (32FA0B6D2C81A32A005E4FDB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Hunt"; sourceTree = "<group>"; };
+		322F136E2C8071DE00786766 /* Scamvenger Hunt */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (32FA0B6D2C81A32A005E4FDB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F33DA5DA2C8B7262008764B5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Hunt"; sourceTree = "<group>"; };
 		32FA0B512C8197B7005E4FDB /* ScamvengerServer */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ScamvengerServer; sourceTree = "<group>"; };
 		F312EE622C88A40A00C94AA7 /* ScamvengerWidgets */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F33D9E122C8A1100008764B5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F312EE672C88A40A00C94AA7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ScamvengerWidgets; sourceTree = "<group>"; };
 		F33D9F0D2C8AE9F7008764B5 /* Scamvenger Accessibility */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Accessibility"; sourceTree = "<group>"; };
@@ -671,7 +681,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScamvengerWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XL5JK4F896;
+				DEVELOPMENT_TEAM = DBBLGF84W3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScamvengerWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ScamvengerWidgets;
@@ -700,7 +710,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScamvengerWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XL5JK4F896;
+				DEVELOPMENT_TEAM = DBBLGF84W3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScamvengerWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ScamvengerWidgets;
@@ -790,7 +800,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scamvenger UserNotifications WidgetKit/Preview Content\"";
-				DEVELOPMENT_TEAM = XL5JK4F896;
+				DEVELOPMENT_TEAM = DBBLGF84W3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Scamvenger-UserNotifications-WidgetKit-Info.plist";
@@ -826,7 +836,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scamvenger UserNotifications WidgetKit/Preview Content\"";
-				DEVELOPMENT_TEAM = XL5JK4F896;
+				DEVELOPMENT_TEAM = DBBLGF84W3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Scamvenger-UserNotifications-WidgetKit-Info.plist";

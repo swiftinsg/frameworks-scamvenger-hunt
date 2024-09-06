@@ -14,24 +14,13 @@ struct ContentView: View {
     @State private var showingControls = false
     @State private var notifications = Notifications()
     
-    @Environment(\.scenePhase) var scenePhase
+    @State private var showingSheet = true
+    
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
         VStack {
-            if !showingControls {
-                Text("Station master's controls. If you're a student, this is not part of the activity. Exit the app.")
-                HStack {
-                    SecureField("Enter password", text: $text)
-                        .frame(width: 200)
-                        .textFieldStyle(.roundedBorder)
-                    Button("Enter") {
-                       verifyPassword()
-                    }
-                    .onSubmit {
-                        verifyPassword()
-                    }
-                }
-            } else {
+            if showingControls {
                 Text("Start/Reset the activity before handing the iPad over to the new group.")
                 HStack {
                     Button("Start/Reset Activity") {
@@ -53,16 +42,24 @@ struct ContentView: View {
             if scenePhase != .active {
                 withAnimation {
                     showingControls = false
+                    showingSheet = true
                 }
             }
         }
-    }
-    
-    func verifyPassword() {
-        if text == "sigma" {
-            withAnimation {
-                showingControls = true
-                text = ""
+        .sheet(isPresented: $showingSheet) {
+            ZStack(alignment: .top) {
+                Text("Station master's controls. If you're a student, this is not part of the activity. Exit the app.")
+                    .multilineTextAlignment(.center)
+                    .padding()
+                PasscodeView { result in
+                    showingControls = result
+                    showingSheet = false
+                }
+            }
+        }
+        .onChange(of: showingSheet) {
+            if !showingControls {
+                showingSheet = true
             }
         }
     }
