@@ -83,10 +83,20 @@
 			);
 			target = F36B86BA2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit */;
 		};
+		F33DA6FE2C8B74C0008764B5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"View Model/Passcode.swift",
+				Views/Passcode/NumberPadButtonView.swift,
+				Views/Passcode/NumberPadView.swift,
+				Views/Passcode/PasscodeView.swift,
+			);
+			target = F36B86BA2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		322F136E2C8071DE00786766 /* Scamvenger Hunt */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (32FA0B6D2C81A32A005E4FDB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Hunt"; sourceTree = "<group>"; };
+		322F136E2C8071DE00786766 /* Scamvenger Hunt */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (32FA0B6D2C81A32A005E4FDB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F33DA6FE2C8B74C0008764B5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Hunt"; sourceTree = "<group>"; };
 		326CA21A2C8B69F000FCC728 /* scamvenger-nearby-interactions */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (326CA22C2C8B6B3300FCC728 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "scamvenger-nearby-interactions"; sourceTree = "<group>"; };
 		32FA0B512C8197B7005E4FDB /* ScamvengerServer */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ScamvengerServer; sourceTree = "<group>"; };
 		F312EE622C88A40A00C94AA7 /* ScamvengerWidgets */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F33D9E122C8A1100008764B5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F312EE672C88A40A00C94AA7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ScamvengerWidgets; sourceTree = "<group>"; };
