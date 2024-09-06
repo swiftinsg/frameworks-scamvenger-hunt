@@ -13,6 +13,15 @@ struct EditExpenditureView: View {
     @Binding var date: Date
     @Binding var total: Double
     
+    let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    
+    @State private var amountText = ""
+    @State private var previousValue = ""
+    
     var body: some View {
             VStack {
                 VStack(spacing: 15) {
@@ -40,9 +49,12 @@ struct EditExpenditureView: View {
                     Divider()
                     
                     LabeledContent {
-                        TextField("Total Amount", value: $total, format: .currency(code: "SGD"))
-                            .keyboardType(.decimalPad)
-                            .multilineTextAlignment(.trailing)
+                        TextField("Total Amount", text: $amountText) {
+                            let number = formatter.string(for: total)!
+                            amountText = number
+                        }
+                        .keyboardType(.decimalPad)
+                        .multilineTextAlignment(.trailing)
                     } label: {
                         Text("Total Amount")
                             .fontWeight(.bold)
@@ -55,5 +67,22 @@ struct EditExpenditureView: View {
             .background(.tint.opacity(0.1))
             .clipShape(.rect(cornerRadius: 16))
             .padding(.vertical, 30)
+            .onAppear {
+                var amount = String(format: "%.2f", total)
+                amount = amount.replacingOccurrences(of: ",", with: "")
+                amountText = amount
+                previousValue = amount
+            }
+            .onChange(of: amountText) {
+                if amountText.isEmpty {
+                    total = 0
+                    previousValue = amountText
+                } else if let newNumber = Double(amountText) {
+                    total = newNumber
+                    previousValue = amountText
+                } else {
+                    amountText = previousValue
+                }
+            }
     }
 }
