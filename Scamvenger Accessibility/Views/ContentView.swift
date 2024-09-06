@@ -14,5 +14,6 @@ struct ContentView: View {
             Page2()
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
+        .blur(radius: 5)
     }
 }
