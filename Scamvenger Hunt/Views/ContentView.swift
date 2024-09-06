@@ -21,8 +21,10 @@ struct ContentView: View {
             switch game.state {
             case .setUp:
                 SetUpView()
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
             case .playingIdle:
                 PlayingIdleView()
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
                     .environmentObject(expenditureData)
             case .playing(let station):
                 StationView(station: station)

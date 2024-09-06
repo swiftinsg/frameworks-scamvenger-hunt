@@ -33,7 +33,7 @@ struct StyledPage<Content: View>: View {
                 
                 Spacer()
                 
-                Text(date, style: .date)
+                Text("Meeting held on: \(date.formatted(date: .long, time: .omitted))")
                     .foregroundStyle(.secondary)
             }
             .padding()

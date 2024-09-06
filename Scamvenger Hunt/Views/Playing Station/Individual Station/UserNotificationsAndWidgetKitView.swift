@@ -29,7 +29,7 @@ struct UserNotificationsAndWidgetKitView: View {
             .fontWeight(.medium)
             
             HStack {
-                Text("Gather Information from Sean's iPad")
+                Text("Gather Information From Sean's iPad")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundStyle(.tint)
