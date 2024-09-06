@@ -38,7 +38,7 @@ class Game {
     }
     
     var currentPlayerEndDate: Date? {
-        currentPlayerStartDate?.addingTimeInterval(300)
+        currentPlayerStartDate?.addingTimeInterval(60)
     }
     
     var accentColor: Color {
