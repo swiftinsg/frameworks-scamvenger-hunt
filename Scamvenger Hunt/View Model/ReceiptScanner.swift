@@ -52,9 +52,19 @@ class ReceiptScanner: NSObject, ObservableObject {
         for line in lines {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM/yyyy"
-            let date = dateFormatter.date(from: String(line))
-            if let date = date {
-                dates.append(date)
+            for word in line.split(separator: " ") {
+                if word.contains("/") {
+                    let date = dateFormatter.date(from: String(word))
+                    if let date = date {
+                        dates.append(date)
+                    } else {
+                        dateFormatter.dateFormat = "dd/MM/yy"
+                        let date = dateFormatter.date(from: String(word))
+                        if let date = date {
+                            dates.append(date)
+                        }
+                    }
+                }
             }
         }
         
