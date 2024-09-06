@@ -41,7 +41,7 @@ struct MapKitView: View {
                     
                     VStack(alignment: .trailing) {
                         Button("Done") {
-                            if mapData.locationResults.count >= 6 {
+                            if mapData.userLocations.count >= 6 {
                                 game.stationCompleted(.mapKit)
                             } else {
                                 isErrorPresented = true
