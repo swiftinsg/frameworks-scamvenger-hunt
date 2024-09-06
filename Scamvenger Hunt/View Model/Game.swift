@@ -73,12 +73,12 @@ class Game {
     
     init() {
         // Skip intro if simulator
-//#if targetEnvironment(simulator)
+#if targetEnvironment(simulator)
         players = Player.PlayerColor.allCases.map({
             Player(color: $0)
         })
         groupName = "Sample Group Name"
         state = .playingIdle
-//#endif
+#endif
     }
 }

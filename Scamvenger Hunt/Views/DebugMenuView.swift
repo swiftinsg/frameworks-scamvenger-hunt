@@ -24,10 +24,21 @@ struct DebugMenuView: View {
                             game.currentStation = newValue
                         }
                     })) {
-                        ForEach(Station.allCases, id: \.hashValue) { station in
-                            Text(station.frameworks)
-                                .tag(station)
-                                .strikethrough(game.completedStations.contains(station))
+                        Section("Uncompleted Activities") {
+                            ForEach(Station.allCases, id: \.hashValue) { station in
+                                if !game.completedStations.contains(station) {
+                                    Text(station.frameworks)
+                                        .tag(station)
+                                }
+                            }
+                        }
+                        Section("Completed Activities") {
+                            ForEach(Station.allCases, id: \.hashValue) { station in
+                                if game.completedStations.contains(station) {
+                                    Text(station.frameworks)
+                                        .tag(station)
+                                }
+                            }
                         }
                     }
                 }
