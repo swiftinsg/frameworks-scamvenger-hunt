@@ -9,10 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView {
-            Meeting1()
-            Text("This is Page 2")
-        }
-        .tabViewStyle(.page(indexDisplayMode: .always))
+            MeetingMinutes()
     }
 }
