@@ -73,53 +73,6 @@ class Notifications {
         ("Weather", "There’s a 100% chance of procrastination today."),
         ("Siri", "I’ve seen worse decisions. Not many, but a few."),
         ("Music", "Your playlist is mostly sad songs. You OK?"),
-        ("Game Center", "Your opponent rage quit. You win by default!"),
-        ("App Store", "Your iPad's out of storage, but keep installing apps anyway."),
-        ("Health", "Running late isn’t exercise. Try again."),
-        ("Calendar", "Today’s forecast: 90% chance of naps."),
-        ("Weather", "Temperature: Too hot. You: Too cool."),
-        ("Fitness", "Don’t worry, your fitness tracker isn’t judging you. Much."),
-        ("Photos", "Here’s a photo you’ll regret uploading in 10 years."),
-        ("Reminders", "It’s OK, you’ll get to it tomorrow. Or not."),
-        ("Siri", "Is today ‘Talk Like a Pirate Day’? No? Well, it should be."),
-        ("Calendar", "You've snoozed this event 5 times. You’re a pro."),
-        ("Health", "Your posture could use some help. And so could your life."),
-        ("Maps", "Recalculating your life choices… and your route."),
-        ("$oonstagram", "Your selfie got 2 likes. One from you."),
-        ("Game Center", "Congratulations! You played yourself."),
-        ("Weather", "It’s sunny with a chance of internet distractions."),
-        ("Fitness", "You broke your record! … for sitting."),
-        ("Siri", "Just so you know, the internet can’t fix everything. But it tries."),
-        ("Mail", "Reminder: That thing you ignored is still waiting."),
-        ("App Store", "You’re one download away from total iPad chaos."),
-        ("Music", "Add some upbeat tunes to your day. Or just nap."),
-        ("Health", "Don't worry, it's only one more cookie."),
-        ("Weather", "Snow is coming. Time to panic."),
-        ("Reminders", "You've snoozed this reminder too many times. We're giving up."),
-        ("Calendar", "Lunch with friends: AKA pretending to be productive."),
-        ("$oonBook", "Your old school friend just posted a blurry vacation pic."),
-        ("Game Center", "Your friend’s online. Time to ignore all your responsibilities."),
-        ("Siri", "You should call your mom. She’d love to remind you of that."),
-        ("Weather", "Cloudy with a chance of Netflix."),
-        ("Reminders", "Drink water. Or coffee. Or whatever’s closest."),
-        ("Photos", "Here’s a pic of a cloud that’s somehow more organized than you."),
-        ("Fitness", "One pushup is better than none. Or just dream about it."),
-        ("Music", "Pump up the jams, or just play soft piano and zone out."),
-        ("Maps", "You’re 5 minutes late. But it’s fine, fashionably late is a thing."),
-        ("App Store", "There’s an app for everything. But not your laundry."),
-        ("Calendar", "Today: A whole lot of nothing."),
-        ("Game Center", "You unlocked a new achievement: Master of Procrastination."),
-        ("Mail", "Your inbox is a mess. Maybe just delete everything."),
-        ("Weather", "Windy out there. Hold onto your hat, or better yet, stay inside."),
-        ("Reminders", "Clean your room. Your future self will thank you."),
-        ("Photos", "Another blurry picture you’ll never delete."),
-        ("Siri", "Your phone battery is low. Like your motivation."),
-        ("Music", "You’re still playing that one song on repeat, huh?"),
-        ("Calendar", "Today: Do something. Or don’t."),
-        ("Fitness", "Congrats! You’ve reached ‘Professional Couch Potato’ status."),
-        ("Weather", "Rain is coming. It’s OK, so are better days."),
-        ("App Store", "Install all the apps! Your iPad's storage is infinite, right?"),
-        ("Mail", "Remember that email you’ve been ignoring? Yeah, still there.")
     ]
     
     init() {
@@ -128,21 +81,24 @@ class Notifications {
     
     func sendNewBatch() {
         self.stop()
-        self.scheduleHints()
-        self.scheduleFakeNotifications()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+            self.scheduleHints()
+            self.scheduleFakeNotifications()
+        }
     }
     
     private func scheduleHints() {
-        self.scheduleNotification(title: "Police", body: "We need your help to gather information from Sean's iPad! Try finding out information from the Widgets he has or Notifications that may appear.", seconds: 15)
-        self.scheduleNotification(title: "Police", body: "We've cracked the code! Read the note carefully.", seconds: 210)
-        self.scheduleNotification(title: "Police", body: "Hmm... try piecing together the first word of each bulleted item in the note.", seconds: 390)
+        self.scheduleNotification(title: "Police", body: "We need your help to gather information from Sean's iPad! Try finding out information from the Widgets he has or Notifications that may appear.", seconds: 9)
+        self.scheduleNotification(title: "Police", body: "We've cracked the code! Read the note carefully.", seconds: 209)
+        self.scheduleNotification(title: "Police", body: "Hmm... try piecing together the first word of each bulleted item in the note.", seconds: 389)
     }
     
     private func scheduleFakeNotifications() {
-        var seconds = TimeInterval(25)
+        var seconds = TimeInterval(14)
         for notification in fakeNotifications {
             self.scheduleNotification(title: notification.0, body: notification.1, seconds: seconds)
-            seconds += 10
+            seconds += 5
         }
     }
     

@@ -21,13 +21,13 @@ struct ContentView: View {
     var body: some View {
         VStack {
             if showingControls {
-                Text("Start/Reset the activity before handing the iPad over to the new group.")
+                Text("Start/Reset the activity and immediately exit this app before handing the iPad over to the group.")
                 HStack {
                     Button("Start/Reset Activity") {
+                        notifications.sendNewBatch()
                         Task {
                             await resetWidgets()
                         }
-                        notifications.sendNewBatch()
                     }
                     .buttonStyle(.borderedProminent)
                     Button("Stop Notifications", role: .destructive) {
