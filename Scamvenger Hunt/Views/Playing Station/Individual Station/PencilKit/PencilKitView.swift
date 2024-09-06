@@ -14,6 +14,8 @@ struct PencilKitView: View {
     @State private var pkCanvasView = PKCanvasView()
     @State private var pkToolPicker = PKToolPicker()
     
+    @Environment(Game.self) private var game
+    
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 0) {
@@ -36,7 +38,7 @@ struct PencilKitView: View {
                     Spacer()
                     
                     VStack(alignment: .trailing) {
-                        Button("Done") {
+                        Button("Approve") {
                             pkToolPicker.setVisible(false, forFirstResponder: pkCanvasView)
                             pkToolPicker.addObserver(pkCanvasView)
                             showingValidationScreen.toggle()
@@ -53,11 +55,18 @@ struct PencilKitView: View {
             GeometryReader { geometry in
                 SketchCanvas(canvasView: $pkCanvasView, picker: $pkToolPicker)
                     .sheet(isPresented: $showingValidationScreen) {
-                        PKValidationScreen(image: pkCanvasView.drawing.image(from: CGRect(origin: CGPoint.zero, size: CGSize(width: geometry.size.width, height: geometry.size.height)), scale: 1.0))
-                            .onDisappear {
-                                pkToolPicker.setVisible(true, forFirstResponder: pkCanvasView)
-                                pkToolPicker.removeObserver(pkCanvasView)
+                        PasscodeView { result in
+                            if result {
+                                let image = pkCanvasView.drawing.image(from: CGRect(origin: CGPoint.zero, size: CGSize(width: geometry.size.width, height: geometry.size.height)), scale: 0.1)
+                                showingValidationScreen = false
+                                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                                game.stationCompleted(.pencilKit)
                             }
+                        }
+                        .onDisappear {
+                            pkToolPicker.setVisible(true, forFirstResponder: pkCanvasView)
+                            pkToolPicker.removeObserver(pkCanvasView)
+                        }
                     }
             }
         }
