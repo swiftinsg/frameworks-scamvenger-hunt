@@ -48,21 +48,35 @@ class ReceiptScanner: NSObject, ObservableObject {
             name = String(lines[0])
         }
         
-        var date = Date()
-        if lines.count > 1 {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd MMMM yyyy"
-            date = dateFormatter.date(from: String(lines[1])) ?? Date()
-        }
-        
-        var total = 0.0
+        var dates: [Date] = []
         for line in lines {
-            if line.hasPrefix("Total: $") {
-                total = Double(line.replacingOccurrences(of: "Total: $", with: "")) ?? 0
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            let date = dateFormatter.date(from: String(line))
+            if let date = date {
+                dates.append(date)
             }
         }
         
-        self.tempExpenditures.append(Expenditure(date: date, storeName: name, amount: total))
+        var date = Date()
+        if dates.count > 0 {
+            date = dates[0]
+        }
+        
+        
+        var totals: [Double] = []
+        for line in lines {
+            if line.contains(".") {
+                let money = Double(line.replacingOccurrences(of: "$ ", with: "").replacingOccurrences(of: "$", with: ""))
+                if let money = money {
+                    totals.append(money)
+                }
+            }
+        }
+        
+        let total = totals.max() ?? 0
+        
+        self.tempExpenditures.append(Expenditure(date: Calendar.current.startOfDay(for: date), storeName: name, amount: total))
     }
     
     func reset() {
