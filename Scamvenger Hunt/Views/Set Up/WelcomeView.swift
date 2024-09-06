@@ -13,6 +13,8 @@ struct WelcomeView: View {
     
     @Environment(Game.self) private var game
     
+    @State private var showingDebugMenu = false
+    
     var body: some View {
         VStack {
             TextField("Group Name", text: Binding(get: {
@@ -32,6 +34,9 @@ struct WelcomeView: View {
             }
             .font(.title)
             .fontWeight(.bold)
+            .onTapGesture {
+                showingDebugMenu = true
+            }
             
             Text("Get started by filling in your group name at the top and taking a group photo.")
                 .font(.title3)
@@ -46,6 +51,10 @@ struct WelcomeView: View {
             .disabled(game.groupName.isEmpty)
             
             Spacer()
+        }
+        .sheet(isPresented: $showingDebugMenu) {
+            DebugMenuView()
+                .environment(game)
         }
     }
 }
