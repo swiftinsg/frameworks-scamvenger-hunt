@@ -61,7 +61,7 @@ struct ARKitView: View {
                     }
                     .listRowBackground(Color.clear)
                 }
-                .frame(width: 500, height: 200)
+                .frame(width: 500, height: 40)
                 .padding()
                 .background(.thickMaterial)
                 .clipShape(.rect(cornerRadius: 8))
