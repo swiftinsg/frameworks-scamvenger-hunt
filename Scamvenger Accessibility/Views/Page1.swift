@@ -55,6 +55,7 @@ struct Page1: View {
                 Shawn (S-H-A-W-N): Arrives with the car behind Innovis by 7:10 AM.
                 """)
             }
+            .scrollDisabled(true)
             .listStyle(.plain)
         }
     }

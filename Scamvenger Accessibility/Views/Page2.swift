@@ -38,6 +38,7 @@ struct Page2: View {
                 Final practice drill tonight at 10:00 PM.
                 """)
             }
+            .scrollDisabled(true)
             .listStyle(.plain)
         }
     }
