@@ -34,7 +34,7 @@ struct Page1: View {
                 Vault Access:
                 Sean (S-E-A-N): Acquired the access code to the $oon vault. Code is 4567, but we have only 5 minutes to enter before it resets.
                 Shaun (S-H-A-U-N): Installed a backdoor into the vault's systems. He’ll disable the security cameras for exactly 2 minutes after Sean (S-E-A-N) enters the code.
-                Shawn (S-H-A-W-N): Handling the getaway car. License plate: SAP123. We'll have to ditch it within 3 kilometres to avoid tracking.
+                Shawn (S-H-A-W-N): Handling the getaway car. License plate: SAP123.
                 Shon (S-H-O-N): Distraction is planned at Apple Developer Center during the heist. He’ll stage a fake protest about "free $oon rights" to pull security away.
                 """)
                 
