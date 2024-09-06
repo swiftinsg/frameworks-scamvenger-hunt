@@ -46,7 +46,7 @@ class Game {
     }
     
     var completedStations: Set<Station> = []
-    var currentStation: Station? = .pencilKit
+    var currentStation: Station? = .spriteKitAndCoreMotion
     
     func setCurrentPlayer(to index: Int) {
         currentPlayerIndex = index
