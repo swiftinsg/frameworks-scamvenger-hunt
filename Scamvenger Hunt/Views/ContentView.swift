@@ -31,6 +31,7 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             case .success(let station):
                 StationSuccessView(station: station)
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
             }
         }
         .tint(game.accentColor)
