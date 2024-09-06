@@ -50,7 +50,7 @@ struct ReviewFacesView: View {
                     Text("Continue")
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(setUp.temporaryPlayers.count > 4 || setUp.temporaryPlayers.isEmpty)
+                .disabled(setUp.temporaryPlayers.count > 8 || setUp.temporaryPlayers.isEmpty)
             }
         }
     }
