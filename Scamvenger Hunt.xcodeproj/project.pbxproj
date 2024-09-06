@@ -538,7 +538,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XL5JK4F896;
+				DEVELOPMENT_TEAM = DBBLGF84W3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Scamvenger-Hunt-Info.plist";
@@ -575,7 +575,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XL5JK4F896;
+				DEVELOPMENT_TEAM = DBBLGF84W3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Scamvenger-Hunt-Info.plist";
@@ -671,7 +671,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScamvengerWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScamvengerWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ScamvengerWidgets;
@@ -700,7 +700,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScamvengerWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScamvengerWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ScamvengerWidgets;
@@ -790,7 +790,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scamvenger UserNotifications WidgetKit/Preview Content\"";
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Scamvenger-UserNotifications-WidgetKit-Info.plist";
@@ -826,7 +826,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scamvenger UserNotifications WidgetKit/Preview Content\"";
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Scamvenger-UserNotifications-WidgetKit-Info.plist";

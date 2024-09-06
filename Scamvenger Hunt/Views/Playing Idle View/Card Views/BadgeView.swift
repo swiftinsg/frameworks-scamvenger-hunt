@@ -27,5 +27,6 @@ struct BadgeView: View {
                 .font(.title)
         }
         .matchedGeometryEffect(id: "badge.\(station.rawValue)", in: game.namespace!)
+        .animation(.default, value: game.completedStations)
     }
 }

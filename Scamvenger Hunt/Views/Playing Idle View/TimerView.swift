@@ -17,6 +17,8 @@ struct TimerView: View {
     
     @State private var timerTrackOpacity = 1.0
     
+    @State private var showingDebugMenu = false
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -31,10 +33,6 @@ struct TimerView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .opacity(timerTrackOpacity)
             
-            CurrentPlayerBubbleView()
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal)
-            
             Text(game.groupName)
                 .font(.title)
                 .foregroundStyle(.black)
@@ -48,6 +46,13 @@ struct TimerView: View {
                     Text(game.groupName)
                         .font(.title)
                         .foregroundStyle(.white)
+                }
+            
+            CurrentPlayerBubbleView()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal)
+                .onTapGesture {
+                    showingDebugMenu = true
                 }
             
         }
@@ -69,6 +74,10 @@ struct TimerView: View {
             proxy.size.width
         } action: { newValue in
             width = newValue
+        }
+        .sheet(isPresented: $showingDebugMenu) {
+            DebugView()
+                .environment(game)
         }
     }
 }
