@@ -45,6 +45,7 @@
 		F312EE4B2C88A3FD00C94AA7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F312EE4D2C88A3FD00C94AA7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F33D9E162C8A1640008764B5 /* ScamvengerWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScamvengerWidgetsExtension.entitlements; sourceTree = "<group>"; };
+		F33D9EFA2C8AE9C1008764B5 /* Scamvenger Accessibility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scamvenger Accessibility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36B86BB2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scamvenger UserNotifications WidgetKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,6 +81,7 @@
 		322F136E2C8071DE00786766 /* Scamvenger Hunt */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (32FA0B6D2C81A32A005E4FDB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Hunt"; sourceTree = "<group>"; };
 		32FA0B512C8197B7005E4FDB /* ScamvengerServer */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ScamvengerServer; sourceTree = "<group>"; };
 		F312EE622C88A40A00C94AA7 /* ScamvengerWidgets */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F33D9E122C8A1100008764B5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F312EE672C88A40A00C94AA7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ScamvengerWidgets; sourceTree = "<group>"; };
+		F33D9F0D2C8AE9F7008764B5 /* Scamvenger Accessibility */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Accessibility"; sourceTree = "<group>"; };
 		F36B86D42C86D1C400393831 /* Scamvenger UserNotifications WidgetKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger UserNotifications WidgetKit"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -109,6 +111,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F33D9EF72C8AE9C1008764B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F36B86B82C86CF9800393831 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -127,6 +136,7 @@
 				32FA0B512C8197B7005E4FDB /* ScamvengerServer */,
 				F36B86D42C86D1C400393831 /* Scamvenger UserNotifications WidgetKit */,
 				F312EE622C88A40A00C94AA7 /* ScamvengerWidgets */,
+				F33D9F0D2C8AE9F7008764B5 /* Scamvenger Accessibility */,
 				322F136D2C8071DE00786766 /* Products */,
 				32FA0B622C819CB3005E4FDB /* Frameworks */,
 			);
@@ -139,6 +149,7 @@
 				32FA0B502C8197B7005E4FDB /* ScamvengerServer.app */,
 				F36B86BB2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit.app */,
 				F312EE4A2C88A3FD00C94AA7 /* ScamvengerWidgetsExtension.appex */,
+				F33D9EFA2C8AE9C1008764B5 /* Scamvenger Accessibility.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,6 +232,26 @@
 			productReference = F312EE4A2C88A3FD00C94AA7 /* ScamvengerWidgetsExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		F33D9EF92C8AE9C1008764B5 /* Scamvenger Accessibility */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F33D9F072C8AE9C3008764B5 /* Build configuration list for PBXNativeTarget "Scamvenger Accessibility" */;
+			buildPhases = (
+				F33D9EF62C8AE9C1008764B5 /* Sources */,
+				F33D9EF72C8AE9C1008764B5 /* Frameworks */,
+				F33D9EF82C8AE9C1008764B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F33D9F0D2C8AE9F7008764B5 /* Scamvenger Accessibility */,
+			);
+			name = "Scamvenger Accessibility";
+			productName = "Scamvenger Accessibility";
+			productReference = F33D9EFA2C8AE9C1008764B5 /* Scamvenger Accessibility.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F36B86BA2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F36B86C82C86CF9B00393831 /* Build configuration list for PBXNativeTarget "Scamvenger UserNotifications WidgetKit" */;
@@ -262,6 +293,9 @@
 					F312EE492C88A3FD00C94AA7 = {
 						CreatedOnToolsVersion = 16.0;
 					};
+					F33D9EF92C8AE9C1008764B5 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					F36B86BA2C86CF9800393831 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -288,6 +322,7 @@
 				32FA0B4F2C8197B7005E4FDB /* ScamvengerServer */,
 				F36B86BA2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit */,
 				F312EE492C88A3FD00C94AA7 /* ScamvengerWidgetsExtension */,
+				F33D9EF92C8AE9C1008764B5 /* Scamvenger Accessibility */,
 			);
 		};
 /* End PBXProject section */
@@ -308,6 +343,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F312EE482C88A3FD00C94AA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F33D9EF82C8AE9C1008764B5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,6 +381,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F312EE462C88A3FD00C94AA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F33D9EF62C8AE9C1008764B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -622,7 +671,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScamvengerWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScamvengerWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ScamvengerWidgets;
@@ -651,7 +700,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScamvengerWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScamvengerWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ScamvengerWidgets;
@@ -672,6 +721,64 @@
 			};
 			name = Release;
 		};
+		F33D9F052C8AE9C3008764B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Scamvenger Accessibility/Preview Content\"";
+				DEVELOPMENT_TEAM = DBBLGF84W3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swiftinsg.Scamvenger-Accessibility";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F33D9F062C8AE9C3008764B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Scamvenger Accessibility/Preview Content\"";
+				DEVELOPMENT_TEAM = DBBLGF84W3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swiftinsg.Scamvenger-Accessibility";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F36B86C62C86CF9B00393831 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -681,7 +788,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scamvenger UserNotifications WidgetKit/Preview Content\"";
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Scamvenger-UserNotifications-WidgetKit-Info.plist";
@@ -717,7 +824,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scamvenger UserNotifications WidgetKit/Preview Content\"";
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Scamvenger-UserNotifications-WidgetKit-Info.plist";
@@ -779,6 +886,15 @@
 			buildConfigurations = (
 				F312EE5B2C88A40000C94AA7 /* Debug */,
 				F312EE5C2C88A40000C94AA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F33D9F072C8AE9C3008764B5 /* Build configuration list for PBXNativeTarget "Scamvenger Accessibility" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F33D9F052C8AE9C3008764B5 /* Debug */,
+				F33D9F062C8AE9C3008764B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
