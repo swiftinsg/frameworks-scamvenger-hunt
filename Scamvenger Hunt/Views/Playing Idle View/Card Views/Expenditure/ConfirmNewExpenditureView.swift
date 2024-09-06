@@ -36,7 +36,7 @@ struct ConfirmNewExpenditureView: View {
                     LazyHStack {
                         ForEach($receiptScanner.tempExpenditures, id: \.id) { $expenditure in
                             EditExpenditureView(storeName: $expenditure.storeName, date: $expenditure.date, total: $expenditure.amount)
-                                .frame(width: geometry.size.width - 300, alignment: .trailing)
+                                .frame(width: geometry.size.width - 150)
                         }
                         .scrollTransition { content, phase in
                             content.scaleEffect(phase.isIdentity ? 1 : 0.85)
@@ -45,7 +45,7 @@ struct ConfirmNewExpenditureView: View {
                     .scrollTargetLayout()
                 }
                 .scrollTargetBehavior(.viewAligned(limitBehavior: .always))
-                .safeAreaPadding(.horizontal, 150)
+                .safeAreaPadding(.horizontal, 75)
             }
             .padding(.horizontal, -30)
             

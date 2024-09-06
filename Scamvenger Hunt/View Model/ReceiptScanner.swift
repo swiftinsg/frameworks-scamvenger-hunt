@@ -73,7 +73,6 @@ class ReceiptScanner: NSObject, ObservableObject {
             date = dates[0]
         }
         
-        
         var totals: [Double] = []
         for line in lines {
             if line.contains(".") {
