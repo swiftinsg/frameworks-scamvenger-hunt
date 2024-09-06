@@ -42,60 +42,51 @@ struct UserNotificationsAndWidgetKitView: View {
             
             Divider()
             
-            HStack {
-                Text("Sean's Favourite Emoji:")
-                    .fontWeight(.bold)
-                
-                TextField("Enter Sean's Favourite Emoji", text: $favouriteEmoji)
-            }
-            .frame(maxHeight: .infinity)
-            
-            Divider()
-            
-            HStack {
-                Text("Number of Bank Accounts Sean owns:")
-                    .fontWeight(.bold)
-                
-                Stepper("\(numberOfAccounts)", value: .init(
-                    get: { numberOfAccounts },
-                    set: { 
-                        if $0 >= 0 {
-                            numberOfAccounts = $0
-                        }
-                    }
-                ))
-                .padding(.leading, 5)
-            }
-            .frame(maxHeight: .infinity)
-            
-            Divider()
-            
-            HStack {
-                Text("What does the Cat say?")
-                    .fontWeight(.bold)
-                
-                TextField("Enter what Pommy Cat says", text: $catSays)
-            }
-            .frame(maxHeight: .infinity)
-            
-            Divider()
-            
-            Button("Submit") {
-                if catSays.lowercased() == "hallo" && favouriteEmoji == "🧌" && numberOfAccounts == 4 {
-                    game.stationCompleted(.userNotificationsAndWidgetKit)
-                } else {
-                    isErrorPresented.toggle()
+            List {
+                HStack {
+                    Text("Sean's Favourite Emoji:")
+                        .fontWeight(.bold)
+                    
+                    TextField("Enter Sean's Favourite Emoji", text: $favouriteEmoji)
                 }
-            }
-            .frame(maxHeight: .infinity)
-            .fontWeight(.bold)
-            
-            ForEach(0..<9) { _ in
-                Divider()
+                .frame(maxHeight: .infinity)
                 
-                Rectangle()
-                    .fill(.clear)
+                HStack {
+                    Text("Number of Bank Accounts Sean owns:")
+                        .fontWeight(.bold)
+                    
+                    Stepper("\(numberOfAccounts)", value: .init(
+                        get: { numberOfAccounts },
+                        set: {
+                            if $0 >= 0 {
+                                numberOfAccounts = $0
+                            }
+                        }
+                    ))
+                    .padding(.leading, 5)
+                }
+                .frame(maxHeight: .infinity)
+                
+                HStack {
+                    Text("What does the Cat say?")
+                        .fontWeight(.bold)
+                    
+                    TextField("Enter what Pommy Cat says", text: $catSays)
+                }
+                .frame(maxHeight: .infinity)
+                
+                Button("Submit") {
+                    if catSays.lowercased() == "hallo" && favouriteEmoji == "🧌" && numberOfAccounts == 4 {
+                        game.stationCompleted(.userNotificationsAndWidgetKit)
+                    } else {
+                        isErrorPresented.toggle()
+                    }
+                }
+                .foregroundStyle(Color.accentColor)
+                .frame(maxHeight: .infinity)
+                .fontWeight(.bold)
             }
+            .listStyle(.plain)
         }
         .padding()
         .ignoresSafeArea(.keyboard)
