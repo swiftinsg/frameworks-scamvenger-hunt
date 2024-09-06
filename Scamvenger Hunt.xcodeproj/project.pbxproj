@@ -40,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		322F136C2C8071DE00786766 /* Scamvenger Hunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scamvenger Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		326CA2192C8B69F000FCC728 /* scamvenger-nearby-interactions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "scamvenger-nearby-interactions.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FA0B502C8197B7005E4FDB /* ScamvengerServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScamvengerServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F312EE4A2C88A3FD00C94AA7 /* ScamvengerWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScamvengerWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F312EE4B2C88A3FD00C94AA7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -50,6 +51,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		326CA22C2C8B6B3300FCC728 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 326CA2182C8B69F000FCC728 /* scamvenger-nearby-interactions */;
+		};
 		32FA0B6D2C81A32A005E4FDB /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -75,20 +83,11 @@
 			);
 			target = F36B86BA2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit */;
 		};
-		F33DA5DA2C8B7262008764B5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"View Model/Passcode.swift",
-				Views/Passcode/NumberPadButtonView.swift,
-				Views/Passcode/NumberPadView.swift,
-				Views/Passcode/PasscodeView.swift,
-			);
-			target = F36B86BA2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		322F136E2C8071DE00786766 /* Scamvenger Hunt */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (32FA0B6D2C81A32A005E4FDB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F33DA5DA2C8B7262008764B5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Hunt"; sourceTree = "<group>"; };
+		322F136E2C8071DE00786766 /* Scamvenger Hunt */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (32FA0B6D2C81A32A005E4FDB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Hunt"; sourceTree = "<group>"; };
+		326CA21A2C8B69F000FCC728 /* scamvenger-nearby-interactions */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (326CA22C2C8B6B3300FCC728 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "scamvenger-nearby-interactions"; sourceTree = "<group>"; };
 		32FA0B512C8197B7005E4FDB /* ScamvengerServer */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ScamvengerServer; sourceTree = "<group>"; };
 		F312EE622C88A40A00C94AA7 /* ScamvengerWidgets */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F33D9E122C8A1100008764B5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F312EE672C88A40A00C94AA7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ScamvengerWidgets; sourceTree = "<group>"; };
 		F33D9F0D2C8AE9F7008764B5 /* Scamvenger Accessibility */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Scamvenger Accessibility"; sourceTree = "<group>"; };
@@ -101,6 +100,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				322F142A2C80E43600786766 /* CodeScanner in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		326CA2162C8B69F000FCC728 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +153,7 @@
 				F36B86D42C86D1C400393831 /* Scamvenger UserNotifications WidgetKit */,
 				F312EE622C88A40A00C94AA7 /* ScamvengerWidgets */,
 				F33D9F0D2C8AE9F7008764B5 /* Scamvenger Accessibility */,
+				326CA21A2C8B69F000FCC728 /* scamvenger-nearby-interactions */,
 				322F136D2C8071DE00786766 /* Products */,
 				32FA0B622C819CB3005E4FDB /* Frameworks */,
 			);
@@ -160,6 +167,7 @@
 				F36B86BB2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit.app */,
 				F312EE4A2C88A3FD00C94AA7 /* ScamvengerWidgetsExtension.appex */,
 				F33D9EFA2C8AE9C1008764B5 /* Scamvenger Accessibility.app */,
+				326CA2192C8B69F000FCC728 /* scamvenger-nearby-interactions.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,6 +205,28 @@
 			);
 			productName = "Scamvenger Hunt";
 			productReference = 322F136C2C8071DE00786766 /* Scamvenger Hunt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		326CA2182C8B69F000FCC728 /* scamvenger-nearby-interactions */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 326CA2242C8B69F100FCC728 /* Build configuration list for PBXNativeTarget "scamvenger-nearby-interactions" */;
+			buildPhases = (
+				326CA2152C8B69F000FCC728 /* Sources */,
+				326CA2162C8B69F000FCC728 /* Frameworks */,
+				326CA2172C8B69F000FCC728 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				326CA21A2C8B69F000FCC728 /* scamvenger-nearby-interactions */,
+			);
+			name = "scamvenger-nearby-interactions";
+			packageProductDependencies = (
+			);
+			productName = "scamvenger-nearby-interactions";
+			productReference = 326CA2192C8B69F000FCC728 /* scamvenger-nearby-interactions.app */;
 			productType = "com.apple.product-type.application";
 		};
 		32FA0B4F2C8197B7005E4FDB /* ScamvengerServer */ = {
@@ -297,6 +327,9 @@
 					322F136B2C8071DE00786766 = {
 						CreatedOnToolsVersion = 16.0;
 					};
+					326CA2182C8B69F000FCC728 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					32FA0B4F2C8197B7005E4FDB = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -333,12 +366,20 @@
 				F36B86BA2C86CF9800393831 /* Scamvenger UserNotifications WidgetKit */,
 				F312EE492C88A3FD00C94AA7 /* ScamvengerWidgetsExtension */,
 				F33D9EF92C8AE9C1008764B5 /* Scamvenger Accessibility */,
+				326CA2182C8B69F000FCC728 /* scamvenger-nearby-interactions */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		322F136A2C8071DE00786766 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		326CA2172C8B69F000FCC728 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -377,6 +418,13 @@
 
 /* Begin PBXSourcesBuildPhase section */
 		322F13682C8071DE00786766 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		326CA2152C8B69F000FCC728 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -615,6 +663,72 @@
 			};
 			name = Release;
 		};
+		326CA2252C8B69F100FCC728 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"scamvenger-nearby-interactions/Preview Content\"";
+				DEVELOPMENT_TEAM = XL5JK4F896;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "scamvenger-nearby-interactions/Info.plist";
+				INFOPLIST_KEY_NSNearbyInteractionAllowOnceUsageDescription = "This app demonstrates the NearbyInteraction framework. Supply a value for this string to explain how the user benefits when they allow the app to use NearbyInteraction.";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "Nearby interactions activity";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swiftinsg.scamvenger-nearby-interactions";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		326CA2262C8B69F100FCC728 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"scamvenger-nearby-interactions/Preview Content\"";
+				DEVELOPMENT_TEAM = XL5JK4F896;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "scamvenger-nearby-interactions/Info.plist";
+				INFOPLIST_KEY_NSNearbyInteractionAllowOnceUsageDescription = "This app demonstrates the NearbyInteraction framework. Supply a value for this string to explain how the user benefits when they allow the app to use NearbyInteraction.";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "Nearby interactions activity";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.swiftinsg.scamvenger-nearby-interactions";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		32FA0B5C2C8197B8005E4FDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -681,7 +795,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScamvengerWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScamvengerWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ScamvengerWidgets;
@@ -710,7 +824,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScamvengerWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScamvengerWidgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ScamvengerWidgets;
@@ -800,7 +914,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scamvenger UserNotifications WidgetKit/Preview Content\"";
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Scamvenger-UserNotifications-WidgetKit-Info.plist";
@@ -836,7 +950,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scamvenger UserNotifications WidgetKit/Preview Content\"";
-				DEVELOPMENT_TEAM = DBBLGF84W3;
+				DEVELOPMENT_TEAM = XL5JK4F896;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Scamvenger-UserNotifications-WidgetKit-Info.plist";
@@ -880,6 +994,15 @@
 			buildConfigurations = (
 				322F137B2C8071E000786766 /* Debug */,
 				322F137C2C8071E000786766 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		326CA2242C8B69F100FCC728 /* Build configuration list for PBXNativeTarget "scamvenger-nearby-interactions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				326CA2252C8B69F100FCC728 /* Debug */,
+				326CA2262C8B69F100FCC728 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
