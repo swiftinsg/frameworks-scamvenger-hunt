@@ -114,7 +114,7 @@ struct AccessibilityView: View {
                     Text(" will be at Apple Developer Center staging a fake protest.")
                 }
                 HStack(spacing: 0) {
-                    Text("Total duration of heist (in minutes): ")
+                    Text("Total duration of heist (from meetup to getaway): ")
                         .fontWeight(.bold)
                     TextField("00", text: $heistDuration)
                         .fixedSize()
