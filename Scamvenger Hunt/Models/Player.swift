@@ -20,7 +20,7 @@ struct Player: Identifiable, Equatable {
         case blue = 2
         case purple = 3
         case orange = 4
-        case pink = 5
+        case brown = 5
         case yellow = 6
         case indigo = 7
         
@@ -31,7 +31,7 @@ struct Player: Identifiable, Equatable {
             case .green: .green
             case .blue: .blue
             case .orange: .orange
-            case .pink: .pink
+            case .brown: .brown
             case .yellow: .yellow
             case .indigo: .indigo
             }
