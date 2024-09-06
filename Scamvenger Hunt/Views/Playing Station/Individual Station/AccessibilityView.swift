@@ -154,6 +154,7 @@ struct AccessibilityView: View {
                     }
                 }
                 .foregroundStyle(Color.accentColor)
+                .fontWeight(.bold)
             }
             .listStyle(.plain)
         }

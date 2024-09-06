@@ -44,66 +44,55 @@ struct CoreHapticsAndNearbyInteractionsView: View {
             
             Divider()
             
-            HStack {
-                Text("Card Number:")
-                    .fontWeight(.bold)
-                
-                TextField("Enter Card Number", text: $cardNumber)
-                    .keyboardType(.numberPad)
-            }
-            .frame(maxHeight: .infinity)
-            
-            Divider()
-            
-            HStack {
-                Text("CVV (Last 3 digits at the back):")
-                    .fontWeight(.bold)
-                
-                TextField("CVV", text: $cvv)
-                    .keyboardType(.numberPad)
-            }
-            .frame(maxHeight: .infinity)
-            
-            Divider()
-            
-            HStack {
-                Text("Card Holder Name:")
-                    .fontWeight(.bold)
-                
-                TextField("Full Name", text: $name)
-            }
-            .frame(maxHeight: .infinity)
-            
-            Divider()
-            
-            HStack {
-                Text("Expiry Date")
-                    .fontWeight(.bold)
-                
-                TextField("MM/YY", text: $expiryDate)
-            }
-            .frame(maxHeight: .infinity)
-            
-            Divider()
-            
-            Button("Submit") {
-                let cleanedCardNumber = cardNumber.filter { $0.isNumber }
-                
-                if cleanedCardNumber == "5683468246265283" && name.lowercased() == "sean wong" && cvv == "491" && expiryDate == "08/24" {
-                    game.stationCompleted(.coreHapticsAndNearbyInteractions)
-                } else {
-                    isErrorPresented.toggle()
+            List {
+                HStack {
+                    Text("Card Number:")
+                        .fontWeight(.bold)
+                    
+                    TextField("Enter Card Number", text: $cardNumber)
+                        .keyboardType(.numberPad)
                 }
-            }
-            .frame(maxHeight: .infinity)
-            .fontWeight(.bold)
-            
-            ForEach(0..<8) { _ in
-                Divider()
+                .frame(maxHeight: .infinity)
                 
-                Rectangle()
-                    .fill(.clear)
+                HStack {
+                    Text("CVV (Last 3 digits at the back):")
+                        .fontWeight(.bold)
+                    
+                    TextField("CVV", text: $cvv)
+                        .keyboardType(.numberPad)
+                }
+                .frame(maxHeight: .infinity)
+                
+                HStack {
+                    Text("Card Holder Name:")
+                        .fontWeight(.bold)
+                    
+                    TextField("Full Name", text: $name)
+                }
+                .frame(maxHeight: .infinity)
+                
+                HStack {
+                    Text("Expiry Date")
+                        .fontWeight(.bold)
+                    
+                    TextField("MM/YY", text: $expiryDate)
+                }
+                .frame(maxHeight: .infinity)
+                
+                Button("Submit") {
+                    let cleanedCardNumber = cardNumber.filter { $0.isNumber }
+                    
+                    if cleanedCardNumber == "5683468246265283" && name.lowercased() == "sean wong" && cvv == "491" && expiryDate == "08/24" {
+                        game.stationCompleted(.coreHapticsAndNearbyInteractions)
+                    } else {
+                        isErrorPresented.toggle()
+                    }
+                }
+                .foregroundStyle(Color.accentColor)
+                .frame(maxHeight: .infinity)
+                .fontWeight(.bold)
             }
+            .listStyle(.plain)
         }
         .padding()
         .ignoresSafeArea(.keyboard)
