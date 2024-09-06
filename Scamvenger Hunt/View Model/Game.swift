@@ -38,7 +38,7 @@ class Game {
     }
     
     var currentPlayerEndDate: Date? {
-        currentPlayerStartDate?.addingTimeInterval(300)
+        currentPlayerStartDate?.addingTimeInterval(60)
     }
     
     var accentColor: Color {
@@ -46,7 +46,7 @@ class Game {
     }
     
     var completedStations: Set<Station> = []
-    var currentStation: Station? = .spriteKitAndCoreMotion
+    var currentStation: Station? = .userNotificationsAndWidgetKit
     
     func setCurrentPlayer(to index: Int) {
         currentPlayerIndex = index

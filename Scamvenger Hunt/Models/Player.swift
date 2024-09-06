@@ -19,6 +19,10 @@ struct Player: Identifiable, Equatable {
         case green = 1
         case blue = 2
         case purple = 3
+        case orange = 4
+        case brown = 5
+        case yellow = 6
+        case indigo = 7
         
         var color: Color {
             switch self {
@@ -26,6 +30,10 @@ struct Player: Identifiable, Equatable {
             case .purple: .purple
             case .green: .green
             case .blue: .blue
+            case .orange: .orange
+            case .brown: .brown
+            case .yellow: .yellow
+            case .indigo: .indigo
             }
         }
     }

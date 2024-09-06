@@ -21,7 +21,7 @@ struct WelcomeView: View {
                 game.groupName = newValue
             }))
             .multilineTextAlignment(.center)
-            .padding(.top)
+
             Spacer()
             
             HStack {
@@ -33,7 +33,7 @@ struct WelcomeView: View {
             .font(.title)
             .fontWeight(.bold)
             
-            Text("Get started by filling in your group name at the top, and then take a group photo.")
+            Text("Get started by filling in your group name at the top and taking a group photo.")
                 .font(.title3)
                 .multilineTextAlignment(.center)
             

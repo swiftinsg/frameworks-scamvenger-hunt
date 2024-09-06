@@ -60,7 +60,7 @@ class SetUp {
             
             if let faceImage = cropImageToRect(image: image, rect: faceRect) {
                 let circularFaceImage = circularMaskImage(image: faceImage)
-                temporaryPlayers.append(Player(profilePicture: circularFaceImage, color: Player.PlayerColor(rawValue: i % 4) ?? .blue))
+                temporaryPlayers.append(Player(profilePicture: circularFaceImage, color: Player.PlayerColor(rawValue: i % 8) ?? .blue))
             }
         }
     }
@@ -94,7 +94,7 @@ class SetUp {
                 Player(
                     id: temporaryPlayers[i].id,
                     profilePicture:temporaryPlayers[i].profilePicture,
-                    color: Player.PlayerColor(rawValue: i % 4) ?? .blue
+                    color: Player.PlayerColor(rawValue: i % 8) ?? .blue
                 )
             )
         }

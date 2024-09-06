@@ -42,13 +42,15 @@ struct ReviewFacesView: View {
                 .buttonStyle(.bordered)
                 
                 Button {
-                    game.players = setUp.temporaryPlayers
-                    game.state = .playingIdle
+                    withAnimation {
+                        game.players = setUp.temporaryPlayers
+                        game.state = .playingIdle
+                    }
                 } label: {
                     Text("Continue")
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(setUp.temporaryPlayers.count > 4 || setUp.temporaryPlayers.isEmpty)
+                .disabled(setUp.temporaryPlayers.count > 8 || setUp.temporaryPlayers.isEmpty)
             }
         }
     }
