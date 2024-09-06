@@ -1,5 +1,5 @@
 //
-//  DebugMenuView.swift
+//  DebugControlsView.swift
 //  Scamvenger Hunt
 //
 //  Created by Tristan Chay on 6/9/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DebugMenuView: View {
+struct DebugControlsView: View {
     
     @State private var completeStation: Station = .coreHapticsAndNearbyInteractions
     
@@ -41,6 +41,8 @@ struct DebugMenuView: View {
                             }
                         }
                     }
+                    .tint(.white)
+                    .colorMultiply(Color.accentColor)
                 }
                 
                 Section {
@@ -50,6 +52,8 @@ struct DebugMenuView: View {
                                 .tag(station)
                         }
                     }
+                    .tint(.white)
+                    .colorMultiply(Color.accentColor)
                     
                     Button("Mark Station") {
                         game.completedStations.insert(completeStation)
@@ -70,5 +74,5 @@ struct DebugMenuView: View {
 }
 
 #Preview {
-    DebugMenuView()
+    DebugControlsView()
 }

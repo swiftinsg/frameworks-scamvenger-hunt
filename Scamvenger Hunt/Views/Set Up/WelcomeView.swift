@@ -53,7 +53,7 @@ struct WelcomeView: View {
             Spacer()
         }
         .sheet(isPresented: $showingDebugMenu) {
-            DebugMenuView()
+            DebugView()
                 .environment(game)
         }
     }

@@ -76,7 +76,7 @@ struct TimerView: View {
             width = newValue
         }
         .sheet(isPresented: $showingDebugMenu) {
-            DebugMenuView()
+            DebugView()
                 .environment(game)
         }
     }
