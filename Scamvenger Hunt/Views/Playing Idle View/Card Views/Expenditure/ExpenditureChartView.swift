@@ -14,17 +14,11 @@ struct ExpenditureChartView: View {
     
     var body: some View {
         Chart(expenditureData.expenditures) { point in
-            PointMark(
+            BarMark(
                 x: .value("Date", point.date),
                 y: .value("Expenditure (SGD)", point.amount)
             )
             .foregroundStyle(.tint)
-            
-            LineMark(
-                x: .value("Date", point.date),
-                y: .value("Expenditure (SGD)", point.amount)
-            )
-            .foregroundStyle(.tint.opacity(0.25))
         }
         .frame(maxWidth: .infinity)
         .chartScrollableAxes(.horizontal)
